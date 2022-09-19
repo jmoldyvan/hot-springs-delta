@@ -165,7 +165,7 @@ React.useEffect(() => {
 									</Link></li>
 									<li><Link to={'#'}>Map</Link></li>
 									<li>{props.currUser===null || props.currUser==undefined || !localStorage.getItem('currUser') ? <Link to={`/profile1`}>Profile</Link> : <Link to={`/profile/${props.currUser._id}`}>Profile</Link> }</li>
-									<li><Link to={'#'}>Contact</Link></li>
+									<li><Link to={'/contact'}>Contact</Link></li>
 								</ul>
 								<form onSubmit={handleSubmit} id="search" action="#" method="GET">	
 								<div className="autocompletediv" style={{ width: 150, height: "200px" }}>					

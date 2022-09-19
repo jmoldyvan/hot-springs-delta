@@ -13,6 +13,7 @@ import Profile from "./components/Profile";
 import Profile1 from "./components/Profile1";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Contact from "./components/Contact";
 
 
 
@@ -197,6 +198,7 @@ function signal(){
             />}
             />
             <Route path='/gallery' element={<Gallery allHotSpringData ={allHotSpringData}  currUser={currUser} />} />
+            <Route path='/contact' element={<Contact allHotSpringData ={allHotSpringData}  currUser={currUser} />} />
             <Route path='/sitedetail/:id' element={<IndSpringDetail allHotSpringData ={allHotSpringData} currUser={currUser} signal={signal}  />} />
             <Route path='/profile1' element={<Profile1 allHotSpringData ={allHotSpringData} />} />
             <Route path='/profile/:id' element={<Profile allHotSpringData ={allHotSpringData} currUser={currUser}/>} />
