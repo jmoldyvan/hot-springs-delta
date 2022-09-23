@@ -1,0 +1,26 @@
+navbar
+footer
+
+home:
+navbar
+log in sign in etc
+main carosel banner
+banner link to map
+closest hotsprings to you
+portfolio list of the hs by state
+search hs by name
+footer
+
+
+indv hot spring page
+navbar
+project detail
+footer
+
+
+
+about us
+
+
+
+personal profile page

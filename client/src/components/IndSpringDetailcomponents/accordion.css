@@ -1,0 +1,35 @@
+.accordion-group {
+	padding:10px 11px;
+    border-top: none;
+	font-size:15px;
+	margin:0 0 3px 0;
+	line-height:18px;
+	color:#000000;
+	cursor:pointer;
+	position:relative;
+	text-transform:none;
+	background:#e8e8e8;
+	transition:all 300ms ease 0s;
+	-webkit-transition:all 300ms ease 0s;
+	border-bottom:1px solid #f1f1f1;
+}
+.accordionbutton {
+	line-height:18px;
+	display:block;
+	padding:0 0 0 17px;
+	/* background:url(../img/acplus.png) no-repeat left top; */
+	text-transform:uppercase;
+}
+.accordion-group:hover {
+    background:rgb(156, 156, 156);
+	color:#eee;
+}
+.accordion-heading{
+	border:1px solid #eee;
+	padding:10px;
+    margin-bottom:10px;
+}
+.accordion-inner{
+    margin-top: 1rem;
+
+}
