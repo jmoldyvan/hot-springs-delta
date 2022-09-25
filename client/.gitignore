@@ -32,3 +32,5 @@ yarn-error.log*
 ./client\node_modules
 ./client\biscaya-html
 server\config/.env
+/biscaya-html
+biscaya-html/
