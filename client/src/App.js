@@ -39,7 +39,6 @@ export default function App() {
     let [fiveCloseHS, setFiveCloseHS] = React.useState()
 
 
-
     function getLongAndLat() {
       return new Promise((resolve, reject) =>
           navigator.geolocation.getCurrentPosition(resolve, reject)

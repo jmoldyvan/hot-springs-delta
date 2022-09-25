@@ -24,6 +24,11 @@ const User = require('../models/User')
         if (err) { return next(err) }
         // req.flash('success', { msg: 'Success! You are logged in.' })
         res.json([{ msg: 'Success! You are logged in.' }])
+        // i think i needto return the user _id here along with msg. maybe the whole user obj
+        // say welcome back ${username}
+        // save the user obj to a state thats initially set in app.js and passed to profile
+        // profile with check if stateis filled and if yes fill with user pic, username
+        // profile with chekc if state if fill then fetch for the users reviews and saves
       })
     })(req, res, next)
   }
