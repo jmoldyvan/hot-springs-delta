@@ -99,8 +99,6 @@ export default function Profile (props) {
 			<div className="col-md-4">
 				<ul id="myTab" className="nav nav-tabs">
 					<li className="active"><a href="#home" data-toggle="tab">Recent Posts</a></li>
-					<li className=""><a href="#profile" data-toggle="tab">Comments</a></li>
-					<li className=""><a href="#something" data-toggle="tab">Tags</a></li>
 				</ul>
 				<div id="myTabContent" className="tab-content multi-sidebar">
 					<div className="tab-pane fade active in" id="home">

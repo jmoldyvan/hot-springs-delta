@@ -81,8 +81,9 @@ export default function Home (props) {
 							Lorem ipsum dolor sit adipiscing elit. Praesent tempus eleifend risus ut congue eset nec lacus.
 						</p>
 						<p>
-							<Link to={'/'} >Read more →</Link>
-						</p>
+							<Link to={'/Signup'} className="btn btn-primary btn-large"> Signup → </Link></p>
+							<p><Link to={'/Login'} className="btn btn-primary btn-large"> Login → </Link></p>
+						
 					</div>
 				</div>
 				{/* <!--/col-md-3--> */}

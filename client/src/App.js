@@ -10,6 +10,8 @@ import Loading from './components/Loading'
 import Gallery from './components/Gallery'
 import IndSpringDetail from './components/IndSpringDetail'
 import Profile from "./components/Profile";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 
 
@@ -88,7 +90,7 @@ export default function App() {
     }, []);  
     React.useEffect(() => {
       if (allHotSpringData.length>0) {
-
+        
         getRandomHotSpringInfo()
       }
     
@@ -174,7 +176,9 @@ export default function App() {
             <Route path='/gallery' element={<Gallery allHotSpringData ={allHotSpringData} />} />
             <Route path='/sitedetail/:id' element={<IndSpringDetail allHotSpringData ={allHotSpringData} />} />
             <Route path='/profile' element={<Profile />} />
-
+            <Route path='/profile/:id' element={<Profile />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
         </Routes>
     </BrowserRouter>
     </div>

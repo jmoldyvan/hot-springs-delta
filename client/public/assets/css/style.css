@@ -1166,6 +1166,28 @@ a.prev span,a.next span {
 	margin-top:8px;
 	text-align:center;
 }
+.signuploginNav{
+	background:#000000ad;
+	color:#fff;
+	font-size:14px;
+	padding:6px;
+	margin-bottom:0;
+	cursor: pointer; 
+}
+
+.signuploginNav2{
+	background:#000000ad;
+	color:rgb(255, 255, 255);
+	font-size:14px;
+	padding:6px;
+	margin-bottom:0;
+	cursor: pointer; 
+}
+.signuploginNav2:hover{
+	color:rgb(255, 255, 255);
+	background:#e7402f
+}
+
 article .day {
 	background:#e7402f;
 	color:#fff;

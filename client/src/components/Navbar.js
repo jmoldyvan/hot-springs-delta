@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 // NOTES
 // on specific media quesry style out a state that adds a hamburger menu
@@ -8,6 +8,23 @@ import { Link } from "react-router-dom";
 
 
 export default function Navbar (props) {
+	const [getLogoutRes, setGetLogOutRes] = React.useState('')
+    const [isLoggedOut, setIsloggedOut] = React.useState(false)
+
+	const getLogOut = async () => {
+		console.log('post LogOut acheived ');
+			let response = await Promise.resolve(fetch ('http://localhost:5000/logOut', {}).then((res) => res.json()))
+			let data = response
+		if(data.msg == 'ERROR'){
+		  setGetLogOutRes('ERROR LOGGING OUT')
+		  return data //should be msg:'strng'
+		}
+		else{ 
+			
+			setIsloggedOut(true)
+		  return data
+		}
+	  }
 
 
     return(
@@ -22,11 +39,19 @@ export default function Navbar (props) {
 							</h1>
 						<div className="topinfo">
 							<ul className="social-icons list-soc">
-							<li><a href='https://twitter.com/JordanMoldovan' target="_blank"><i className="icon-twitter"></i></a></li>
+							<li><a href='https://twitter.com/JordanMoldovan'><i className="icon-twitter"></i></a></li>
 							<li><a href='https://www.linkedin.com/in/jordan-moldovan/'><i className="icon-linkedin"></i></a></li>
 							<li><a href='https://github.com/jmoldyvan'><i className="icon-google-plus"></i></a></li>
 							<li><a href={'https://jordan-moldovan.netlify.app/'}><i className=""></i></a></li>
 							</ul>
+							<div class="infophone">
+							<span ><Link className="signuploginNav2" to={'/Login'}>Login</Link></span>
+							<span className="signuploginNav"> |</span>
+							<span ><Link className="signuploginNav2" to={'/Signup'}>Signup</Link></span>
+							<span className="signuploginNav"> |</span>
+							{isLoggedOut ? <Navigate to="/" replace/> : <span className="signuploginNav2" onClick={getLogOut} >LogOut</span>}
+							</div>
+							
 						</div>
 						<div className="clearfix">
 						</div>
