@@ -34,3 +34,4 @@ yarn-error.log*
 server\config/.env
 /biscaya-html
 biscaya-html/
+biscaya-html
