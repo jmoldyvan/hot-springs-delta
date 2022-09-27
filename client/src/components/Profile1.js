@@ -45,7 +45,7 @@ export default function Profile1 (props) {
 				</div>		
 			</div>
 			
-			<div className="col-md-4">
+			<div className=" col-md-4">
 				<ul id="myTab" className="nav nav-tabs">
 					<li className="active"><a href="#home" data-toggle="tab">Your Reviews</a></li>
 				</ul>
