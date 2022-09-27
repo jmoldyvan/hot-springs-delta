@@ -28,7 +28,7 @@ export default function Profile1 (props) {
 				<div className="row">
 				<div className="col-md-6">
 						<div className="boxblog">
-							<h5>This Is Where Your Recent Reveiws Will Go</h5>
+							<h5>This Is Where Your Recent Reviews Will Go</h5>
 							<p className="small datepost">
 							</p>
 							<div className="innerblogboxtwo">

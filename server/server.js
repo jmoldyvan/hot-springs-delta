@@ -10,6 +10,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const reviewRoutes = require('./routes/reviews')
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 app.use(cors());
 
 require('dotenv').config({path: './config/.env'})
@@ -42,6 +43,21 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use("/reviews", reviewRoutes);
  
+const contactEmail = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: "westcoasthotsprings@gmail.com",
+    pass: "awcrwhhqduomrbps",
+  },
+});
+contactEmail.verify((error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Ready to Send");
+  }
+});
+
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
