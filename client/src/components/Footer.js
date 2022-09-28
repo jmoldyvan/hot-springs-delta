@@ -27,7 +27,7 @@ export default function Footer () {
 				<div className="col-md-4">
 					<h1 className="title"></h1>
 				</div>
-				<div className="col-md-4">
+				{/* <div className="col-md-4">
 					<h1 className="title">Questions?</h1>
 					<div className="done">
 						<div className="alert alert-success">
@@ -47,7 +47,7 @@ export default function Footer () {
 							<input type="submit" id="submit" className="btn" value="Send"/>
 						</div>
 					</form>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	</div>

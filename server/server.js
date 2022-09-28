@@ -8,7 +8,7 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-// const todoRoutes = require('./routes/todos')
+const reviewRoutes = require('./routes/reviews')
 const cors = require("cors");
 app.use(cors());
 
@@ -41,7 +41,7 @@ app.use(passport.session())
 app.use(flash())
   
 app.use('/', mainRoutes)
-// app.use("/post", postRoutes);
+app.use("/reviews", reviewRoutes);
 // app.use("/comment", commentRoutes);
  
 app.listen(process.env.PORT, ()=>{

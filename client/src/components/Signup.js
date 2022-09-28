@@ -12,6 +12,14 @@ export default function Signup (props) {
     const [getSignupRes, setGetSignupRes] = React.useState('')
     const [isSignedUp, setIsSignedUp] = React.useState(false)
     const [handleData, setHandleData] = React.useState('Fill In All Fields To Create Account')
+    const [signupUserInfo, setSignUpUserInfo]= React.useState()
+
+    React.useEffect(() => {
+    if(localStorage.getItem('currUser')){
+        setHandleData({msg: 'You Are Already Logged In'})
+    }
+         },[]);
+    
             
         function handleChange(event) {
             setFormData(prevFormData => {
@@ -24,10 +32,13 @@ export default function Signup (props) {
             
         function handleSubmit(event) {
             event.preventDefault()
-            console.log(formData)
+            // console.log(formData)
         }
     
         const getSignup = async () => {
+            if(localStorage.getItem('currUser')){
+                return setHandleData( {msg: 'You Are Already Logged In'})
+            }
             console.log('post Signup acheived ');
                 let response = await Promise.resolve(fetch ('http://localhost:5000/signup', {
                 method: 'post', body: JSON.stringify(formData), //put your state from inputs/text area//),
@@ -36,6 +47,11 @@ export default function Signup (props) {
                 let data = response
                 console.log(data);
                 setHandleData(data[0])
+                if(data.length > 1){
+                    localStorage.setItem('currUser', JSON.stringify(data[1]))
+                    setIsSignedUp(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true )
+
+                }
             if(data.msg !== 'You\'ve signed up! Check out the profile tab.' || 'Account with that email address or userName already exists.'){
               setGetSignupRes(data[0].msg)
               return data[0].msg //should be msg:'strng'
@@ -46,15 +62,22 @@ export default function Signup (props) {
             }
             else{ 
             setIsSignedUp(true)
-              return data[0]
+              return data[0].msg
             }
           }
 
+React.useEffect(() => {
+    if(isSignedUp!==false){
+        window.location.reload()
+        setHandleData( {msg:'You Successfully Signed Up'})
+    }
+     },[isSignedUp]);
+
+
 return(
     <div>
-        <Navbar/>
+        <Navbar currUser={props.currUser}/>
         <div>
-        {/* {isSignedUp ? <Navigate to="/profile" replace/> : <p>{getSignupRes}</p>} */}
         { handleData == 'Fill In All Fields To Create Account' ? <h2>{'Fill In All Fields To Create Account'}</h2> : <h2>{`${handleData.msg}`}</h2>}
         </div>
         <div>
@@ -80,7 +103,7 @@ return(
                         name="email"
                         value={formData.email}
                     />
-                    <button onClick={getSignup} >Signup</button>
+                    <button onClick={()=> {props.signal(); getSignup()}} >Signup</button>
             </form>
                     <button><Link to={'/login'}>Already Have An Account?</Link></button>  
         </div>

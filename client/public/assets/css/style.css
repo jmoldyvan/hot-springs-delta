@@ -290,6 +290,8 @@ h1.small {
 	background-color:#fdfdfd;
 	border:1px dashed #ccc;
 	font-family:open_sanslight;
+	box-shadow:0 0 15px 0 rgba(0,0,0,0.4);
+
 }
 ul.icons-ul {
 	text-indent:0em;
@@ -1993,6 +1995,7 @@ min-height:290px;
 position:relative;
 padding:5px 10px;
 word-wrap:break-word;
+box-shadow:10px 10px 15px 0 rgba(0,0,0,0.4);
 }
 .boxblog h5 {
 line-height:1.6;
@@ -2521,7 +2524,7 @@ line-height: 28px;
 /*================================================== * Testimonials* ===============================================*/
 .testimonial {
 padding:20px 25px;
-background-color:#f9f9f9;
+background-color:#e2e2e2;
 /*Change colour here and in .arrow-down*/ float:left;
 -moz-border-radius:8px;
 -webkit-border-radius:8px;
@@ -2540,7 +2543,7 @@ float:left;
 margin-left:25px;
 width:0;
 height:0;
-border-top:30px solid #f9f9f9;
+border-top:30px solid #e2e2e2;
 border-left:30px solid transparent;
 border-right:0px solid transparent;
 border-bottom:0px;
@@ -2550,10 +2553,10 @@ float:left;
 margin:0 8px;
 color:#e7402f;
 padding-top:5px;
-font-size:13px;
+font-size:15px;
 }
 .testimonial-name span {
-color:#555;
+color:rgb(0, 0, 0);
 font-weight:normal;
 }
 .hirefor {

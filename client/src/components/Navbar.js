@@ -1,17 +1,16 @@
 import React from "react";
 import { Link, Navigate } from "react-router-dom";
-
-// NOTES
-// on specific media quesry style out a state that adds a hamburger menu
-// will need onclick event to open and close hamburger for list of nav items
-
+// import User from "../../../server/models/User";
 
 
 export default function Navbar (props) {
 	const [getLogoutRes, setGetLogOutRes] = React.useState('')
     const [isLoggedOut, setIsloggedOut] = React.useState(false)
-
+// console.log(props.currUser);
 	const getLogOut = async () => {
+		if(!localStorage.getItem('currUser')){
+			return undefined
+        }
 		console.log('post LogOut acheived ');
 			let response = await Promise.resolve(fetch ('http://localhost:5000/logOut', {}).then((res) => res.json()))
 			let data = response
@@ -20,13 +19,13 @@ export default function Navbar (props) {
 		  return data //should be msg:'strng'
 		}
 		else{ 
-			
 			setIsloggedOut(true)
+			localStorage.removeItem('currUser');
 		  return data
 		}
 	  }
 
-
+	//   console.log(props.currUser);
     return(
 		<header>
 			<div className="container clearfix">
@@ -49,7 +48,7 @@ export default function Navbar (props) {
 							<span className="signuploginNav"> |</span>
 							<span ><Link className="signuploginNav2" to={'/Signup'}>Signup</Link></span>
 							<span className="signuploginNav"> |</span>
-							{isLoggedOut ? <Navigate to="/" replace/> : <span className="signuploginNav2" onClick={getLogOut} >LogOut</span>}
+							{isLoggedOut && !localStorage.getItem('currUser') ? <Navigate to="/profile1" /> : <span className="signuploginNav2" onClick={getLogOut} >LogOut</span>}
 							</div>
 							
 						</div>
@@ -63,9 +62,9 @@ export default function Navbar (props) {
 									<li><Link to ='/gallery'>Gallery
 									</Link></li>
 									<li><Link to={'#'}>Map</Link></li>
-									<li><Link to='/profile'>Profile</Link></li>
+									<li>{props.currUser===null || props.currUser==undefined || !localStorage.getItem('currUser') ? <Link to={`/profile1`}>Profile</Link> : <Link to={`/profile/${props.currUser._id}`}>Profile</Link> }</li>
 									<li><Link to={'#'}>Contact</Link></li>
-									<li><Link to={'#'}>Elements</Link></li>
+									{/* <li><Link to={'#'}>Elements</Link></li> */}
 								</ul>
 								<form id="search" action="#" method="GET">							
 										<input type="text" 

@@ -10,6 +10,7 @@ import Loading from './components/Loading'
 import Gallery from './components/Gallery'
 import IndSpringDetail from './components/IndSpringDetail'
 import Profile from "./components/Profile";
+import Profile1 from "./components/Profile1";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 
@@ -37,7 +38,13 @@ export default function App() {
     let [allHotSpringNames, setAllHotSpringNames] = React.useState([])
     let [userLatLng, setUserLatLng] = React.useState()
     let [fiveCloseHS, setFiveCloseHS] = React.useState()
+    let [signalForCurrUser, setSignalForCurrUser] = React.useState(false)
 
+    const [currUser, setCurrUser] = React.useState({
+      _id:"",
+      id:"",
+      userName: ''
+    })
 
     function getLongAndLat() {
       return new Promise((resolve, reject) =>
@@ -48,21 +55,23 @@ export default function App() {
       let latLng = {  }
       latLng.lng = pos.coords.longitude;
       latLng.lat = pos.coords.latitude;
-      console.log(latLng);
+      // console.log(latLng);
       setUserLatLng(latLng)
       return latLng
     }
     const getFive = async () => {
       let latLng = await currLatLng()
-      console.log('fiverun');
-      let response = await Promise.resolve(fetch ('http://localhost:5000/hotspringdbinfo/findNearest', {
+      // console.log('fiverun');
+      try{let response = await Promise.resolve(fetch ('http://localhost:5000/hotspringdbinfo/findNearest', {
         method: 'post', body: JSON.stringify(latLng),
         headers: { 'Content-Type': 'application/json' }
       }).then((res) => res.json()))
       let data = response
       setFiveCloseHS([data[0], data[1], data[2], data[3], data[4]])
-      return data
+    } catch (error) {
+        console.log(error);
     }
+  }
 
     const fetchHotSpring = async () => {
       try{
@@ -89,17 +98,21 @@ export default function App() {
     }, []);  
     React.useEffect(() => {
       if (allHotSpringData.length>0) {
-        
         getRandomHotSpringInfo()
       }
-    
   }, [allHotSpringData]);
+
+  React.useEffect(() => {
+    saveUserInfo()
+     },[signalForCurrUser]);
+
+
   //   loading true, make loading comp run
   if (loading) {
   return <Loading />;
   }
 
-  console.log(fiveCloseHS);
+  // console.log(fiveCloseHS);
   // console.log(allHotSpringData);/
   function randomHotSpring() {
     return allHotSpringData[Math.floor(Math.random()*allHotSpringData.length)]
@@ -110,7 +123,6 @@ export default function App() {
       hotspringarr.push(randomHotSpring())
       
     }
-    // let randomHotSpring = allHotSpringData[Math.floor(Math.random()*allHotSpringData.length)]
     setHotSpringDataObject(prevSpringInfo => ([
       {
         name: hotspringarr[0].name,
@@ -161,7 +173,21 @@ export default function App() {
   ]))
   }
 
- console.log(hotSpringDataObject);
+  function saveUserInfo() {
+    if(!localStorage.getItem('currUser')){
+      return currUser
+    }
+    else{
+    const saved = localStorage.getItem("currUser");
+    const initialValue = JSON.parse(saved);
+    setCurrUser(initialValue)}
+    // console.log(currUser);
+}
+console.log(signalForCurrUser);
+function signal(){
+  setSignalForCurrUser(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true ) 
+}
+ 
 
   return (
     <body className="boxed">
@@ -169,15 +195,16 @@ export default function App() {
     <BrowserRouter>
         <Routes>
             <Route path='/' element={<Home 
+            currUser={currUser}
             hotSpringDataObject={hotSpringDataObject} 
             allHotSpringData ={allHotSpringData}
             fiveCloseHS={fiveCloseHS}/>}/>
-            <Route path='/gallery' element={<Gallery allHotSpringData ={allHotSpringData} />} />
-            <Route path='/sitedetail/:id' element={<IndSpringDetail allHotSpringData ={allHotSpringData} />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/profile/:id' element={<Profile />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
+            <Route path='/gallery' element={<Gallery allHotSpringData ={allHotSpringData}  currUser={currUser} />} />
+            <Route path='/sitedetail/:id' element={<IndSpringDetail allHotSpringData ={allHotSpringData} currUser={currUser} signal={signal}  />} />
+            <Route path='/profile1' element={<Profile1 />} />
+            <Route path='/profile/:id' element={<Profile allHotSpringData ={allHotSpringData} currUser={currUser}/>} />
+            <Route path='/login' element={<Login signal={signal} currUser={currUser} />} />
+            <Route path='/signup' element={<Signup signal={signal} currUser={currUser} />} />
         </Routes>
     </BrowserRouter>
     </div>

@@ -9,13 +9,14 @@ import {Link} from "react-router-dom"
 
 export default function Home (props) {
 	
-
+	console.log(props.currUser);
 
   // console.log(hotSpringDataObject);
     return(
 	<div>
 
 	<Navbar
+		currUser={props.currUser}
 		allHotSpringData={props.classNameallHotSpringData}
 	/>
 	<div className="container">
@@ -64,10 +65,11 @@ export default function Home (props) {
 						<div>
 						</div>
 					</div>
-
-			<HSNear 
-				fiveCloseHS = {props.fiveCloseHS}
-			/>
+			{props.fiveCloseHS !== undefined ? 
+			<HSNear fiveCloseHS = {props.fiveCloseHS}/> :
+				<div></div>
+			}
+			
 			
 		
 			<div className="row graysection">

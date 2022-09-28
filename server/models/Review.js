@@ -1,7 +1,19 @@
 const mongoose = require("mongoose");
 
-const CommentSchema = new mongoose.Schema({
-  comment: {
+const ReviewSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  review: {
+    type: String,
+    required: true,
+  },
+  userName: {
+    type: String,
+    required: true,
+  },
+  image: {
     type: String,
     required: true,
   },
@@ -10,9 +22,9 @@ const CommentSchema = new mongoose.Schema({
     required: true,
   },
   usersWhoLiked: [mongoose.Schema.Types.ObjectId],
-  post: {
+  hotSpring: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Post",
+    ref: "HotSpringInfo",
   },
   createdAt: {
     type: Date,
@@ -24,4 +36,4 @@ const CommentSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("Comment", CommentSchema);
+module.exports = mongoose.model("reviews", ReviewSchema, "reviews");

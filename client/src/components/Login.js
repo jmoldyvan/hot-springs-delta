@@ -5,6 +5,7 @@ import {Link, useNavigate} from "react-router-dom"
 
 
 export default function Login (props) {
+
     const [formData, setFormData] = React.useState(
         {userName: "",
         email: "",
@@ -12,18 +13,14 @@ export default function Login (props) {
     )
     const [getLoginRes, setGetLoginRes] = React.useState(false)
     const [isLoggedIn, setIsloggedIn] = React.useState(false)
-    const [handleData, setHandleData] = React.useState('Please Login')
-                
-let navigate = useNavigate();
-React.useEffect(() => {
-        if (isLoggedIn==true){
-           return navigate("/");
-        }
-     },[isLoggedIn]);
-React.useEffect(() => {
-    displayLogin()
-     },[getLoginRes]);
+    const [handleData, setHandleData] = React.useState('Login')
+    const [loginUserInfo, setLoginUserInfo]= React.useState()
 
+    React.useEffect(() => {
+        if(localStorage.getItem('currUser')){
+            setHandleData({msg: 'You Are Already Logged In'})
+        }
+             },[]);
 
         function handleChange(event) {
             setFormData(prevFormData => {
@@ -36,37 +33,44 @@ React.useEffect(() => {
             
         function handleSubmit(event) {
             event.preventDefault()
-            console.log(formData)
+            // console.log(formData)
         }
     
         const getLogin = async () => {
+            if(localStorage.getItem('currUser')){
+                return setHandleData( {msg:'You Are Already Logged In'})
+            }
             console.log('post login acheived ');
             console.log(formData);
                 let response = await Promise.resolve(fetch ('http://localhost:5000/login', {
                 method: 'post', body: JSON.stringify(formData), //put your state from inputs/text area//),
                 headers: { 'Content-Type': 'application/json' }
                 }).then((res) => res.json()))
-                console.log(response);
+                // console.log(response);
                 let data = response
-                console.log(data);
+                // console.log(data);
                 setHandleData(data[0])
-                console.log(handleData);
-                
+                // console.log(handleData);
+                if(data.length > 1){
+                    localStorage.setItem('currUser', JSON.stringify(data[1]))
+                    setIsloggedIn(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true )
+                }
             }
-                
-        function displayLogin(){
-            if (handleData == {msg: 'Success! You are logged in.'}){ 
-                console.log('should go to profiel');
-                setIsloggedIn(true)
-            }
-          }
+
+React.useEffect(() => {
+    if(isLoggedIn!==false){
+        window.location.reload()
+        setHandleData( {msg:'You Successfully Logged In'})
+    }
+     },[isLoggedIn]);
+
 // console.log(isLoggedIn);
-// console.log(handleData);
+// console.log(loginUserInfo);
 return(
     <div>
-        <Navbar/>
+        <Navbar currUser={props.currUser}/>
         <div>
-        { handleData == 'Please Login' ? <h2>{'Please Log In'}</h2> : <h2>{`${handleData.msg}`}</h2>}
+        { handleData == 'Login' ? <h2>{'Log In'}</h2> : <h2>{`${handleData.msg}`}</h2>}
         </div>
         <div>
             <form onSubmit={handleSubmit}>
@@ -91,7 +95,7 @@ return(
                         name="email"
                         value={formData.email}
                     />
-                    <button onClick={getLogin}  >Login</button>
+                    <button onClick={()=> {props.signal(); getLogin()}}  >Login</button>
             </form>
                     <button><Link to={'/signup'}>Need To Sign Up?</Link></button>  
         </div>

@@ -11,7 +11,7 @@ import "../IndSpringDetailcomponents/accordion.css";
 
 
 export default function AccordionInfo (props) {
-    console.log(props);
+    // console.log(props);
     return(
 
 <div>

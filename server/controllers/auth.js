@@ -23,12 +23,7 @@ const User = require('../models/User')
       req.logIn(user, (err) => {
         if (err) { return next(err) }
         // req.flash('success', { msg: 'Success! You are logged in.' })
-        res.json([{ msg: 'Success! You are logged in.' }])
-        // i think i needto return the user _id here along with msg. maybe the whole user obj
-        // say welcome back ${username}
-        // save the user obj to a state thats initially set in app.js and passed to profile
-        // profile with check if stateis filled and if yes fill with user pic, username
-        // profile with chekc if state if fill then fetch for the users reviews and saves
+        res.json([{ msg: 'Success! You are logged in.' }, user])
       })
     })(req, res, next)
   }
@@ -43,15 +38,6 @@ const User = require('../models/User')
       res.json([{ msg: 'ERROR' }])
     })
   }
-  
-  // exports.getSignup = (req, res) => {
-  //   if (req.user) {
-  //     return res.json({message:"This email already registed !!"})
-  //   }
-  //   res.render('signup', {
-  //     title: 'Create Account'
-  //   })
-  // }
   
   exports.postSignup = (req, res, next) => {
     if (req.user) {
@@ -89,7 +75,7 @@ const User = require('../models/User')
           if (err) {
             return next(err)
           }
-          res.json([{ msg: 'You\'ve signed up! Check out the profile tab.' }])
+          res.json([{ msg: 'You\'ve signed up! Check out the profile tab.' }, user])
         })
       })
     })
