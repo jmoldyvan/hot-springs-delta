@@ -50,7 +50,7 @@ function doesUserIsLiked() {
 }
     return(
     <div>
-        <Navbar currUser={props.currUser}/>
+        <Navbar currUser={props.currUser} allHotSpringData={props.allHotSpringData}/>
         <div className="container">
 		<div className="row">
 			<div className="col-md-8 span-fixed-sidebar">

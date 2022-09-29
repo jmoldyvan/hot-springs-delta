@@ -1,9 +1,12 @@
 import React from "react";
 import { Link, Navigate } from "react-router-dom";
+import {Col} from 'react-bootstrap'
+import { slide as Menu } from 'react-burger-menu'
 // import User from "../../../server/models/User";
 
 
 export default function Navbar (props) {
+	
 	const [getLogoutRes, setGetLogOutRes] = React.useState('')
     const [isLoggedOut, setIsloggedOut] = React.useState(false)
 // console.log(props.currUser);
@@ -24,6 +27,31 @@ export default function Navbar (props) {
 		  return data
 		}
 	  }
+// console.log(props.allHotSpringData);
+// let data = props.allHotSpringData
+
+// const handleOnSearch = (string, results) => {
+// 	console.log(string, results);
+// 	setSearchString(string);
+//   };
+// const handleOnSelect = (string) => {
+// 	console.log(string.name);
+// 	setSearchString(string.name);
+//   };
+
+//   const handleOnFocus = () => {
+// 	console.log("Focused");
+//   };
+
+//   const formatResult = (data) => {
+// 	console.log(data);
+// 	return (
+// 	  <div className="result-wrapper">
+// 		<span className="result-span">id: {item._id}</span>
+// 		<span className="result-span">name: {item.name}</span>
+// 	  </div>
+// 	);
+//   };
 
 	//   console.log(props.currUser);
     return(
@@ -54,9 +82,30 @@ export default function Navbar (props) {
 						</div>
 						<div className="clearfix">
 						</div>
+						<Col sm={12}  className='d-md-none d-sm-block d-lg-none' ><Menu burgerButtonClassName={ "" } right >
+									<ul  id="" className="">
+										<li className="menu-item"><Link className="signuploginNav3" to={'/'}>Home</Link></li><br></br><br></br>
+										<li className="menu-item"><Link className="signuploginNav3" to ='/gallery'>Gallery</Link></li><br></br><br></br>
+										<li className="menu-item"><Link className="signuploginNav3" to={'#'}>Map</Link></li><br></br><br></br>
+										<li className="menu-item">{props.currUser===null || props.currUser==undefined || !localStorage.getItem('currUser') ? <Link className="signuploginNav3" to={`/profile1`}>Profile</Link> : <Link className="signuploginNav3" to={`/profile/${props.currUser._id}`}>Profile</Link> }</li>
+										<br></br><br></br><li className="menu-item"><Link className="signuploginNav3" to={'#'}>Contact</Link></li>
+									</ul><br></br><br></br><br></br>
+
+									<form id="search" action="#" method="GET">							
+											<input type="text" 
+											placeholder="Search here..." 
+											name="s"/>
+											<Link to={'#'}></Link>							
+									</form>
+									</Menu></Col>
+						
+						
+						<Col  lg={12} className='d-none d-sm-none d-md-block d-lg-block'>
 						<div className="row-nav navbar">
+							
 							<div className="navbar-inner">
-								<ul id="nav" className="nav">
+								
+								<ul  id="nav" className="nav">
 									<li className="active selected"><Link to={'/'}>Home</Link></li>
 									{/* <li className="divider-vertical"></li> */}
 									<li><Link to ='/gallery'>Gallery
@@ -73,8 +122,9 @@ export default function Navbar (props) {
 										name="s"/>
 										<Link to={'#'}></Link>							
 								</form>
+    							
 							</div>
-						</div>
+						</div></Col>
 					</div>
 				</div>
 			</div>

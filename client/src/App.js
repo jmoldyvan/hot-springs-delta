@@ -43,7 +43,7 @@ export default function App() {
     const [currUser, setCurrUser] = React.useState({
       _id:"",
       id:"",
-      userName: ''
+      userName: '',
     })
 
     function getLongAndLat() {

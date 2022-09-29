@@ -17,7 +17,7 @@ export default function Home (props) {
 
 	<Navbar
 		currUser={props.currUser}
-		allHotSpringData={props.classNameallHotSpringData}
+		allHotSpringData={props.allHotSpringData}
 	/>
 	<div className="container">
 			<div className="row text-center intro">

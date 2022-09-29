@@ -7,7 +7,7 @@ export default function Gallery (props) {
     return(
         
     <div>
-        <Navbar currUser={props.currUser}/>
+        <Navbar currUser={props.currUser} allHotSpringData={props.allHotSpringData}/>
         <ByState
 		allHotSpringData = {props.allHotSpringData}
 		/>

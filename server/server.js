@@ -47,3 +47,14 @@ app.use("/reviews", reviewRoutes);
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
 })    
+
+// Oops, sorry, I had started typing something and never finished haha.
+
+// I would deploy your frontend on Vercel. For the backend, I'm actually not aware of any free Node servers anymore now that Heroku stopped 
+// doing a free tier...Ah, looks like render.com/pricing looks like it still has a free tier.
+
+// After you deploy your backend, you will have a URL. 
+// You will need to set that as an environment variable 
+// for your frontend so it can know where to look for your fetch calls. 
+// This will mean changing your application code so that it uses an environment 
+// variable as the root of your fetch requests.
