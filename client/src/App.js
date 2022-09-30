@@ -201,10 +201,10 @@ function signal(){
             fiveCloseHS={fiveCloseHS}/>}/>
             <Route path='/gallery' element={<Gallery allHotSpringData ={allHotSpringData}  currUser={currUser} />} />
             <Route path='/sitedetail/:id' element={<IndSpringDetail allHotSpringData ={allHotSpringData} currUser={currUser} signal={signal}  />} />
-            <Route path='/profile1' element={<Profile1 />} />
+            <Route path='/profile1' element={<Profile1 allHotSpringData ={allHotSpringData} />} />
             <Route path='/profile/:id' element={<Profile allHotSpringData ={allHotSpringData} currUser={currUser}/>} />
-            <Route path='/login' element={<Login signal={signal} currUser={currUser} />} />
-            <Route path='/signup' element={<Signup signal={signal} currUser={currUser} />} />
+            <Route path='/login' element={<Login allHotSpringData ={allHotSpringData} signal={signal} currUser={currUser} />} />
+            <Route path='/signup' element={<Signup allHotSpringData ={allHotSpringData} signal={signal} currUser={currUser} />} />
         </Routes>
     </BrowserRouter>
     </div>

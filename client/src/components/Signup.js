@@ -76,7 +76,7 @@ React.useEffect(() => {
 
 return(
     <div>
-        <Navbar currUser={props.currUser}/>
+        <Navbar allHotSpringData ={props.allHotSpringData} currUser={props.currUser}/>
         <div>
         { handleData == 'Fill In All Fields To Create Account' ? <h2>{'Fill In All Fields To Create Account'}</h2> : <h2>{`${handleData.msg}`}</h2>}
         </div>

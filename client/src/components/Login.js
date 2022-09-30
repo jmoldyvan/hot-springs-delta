@@ -68,7 +68,7 @@ React.useEffect(() => {
 // console.log(loginUserInfo);
 return(
     <div>
-        <Navbar currUser={props.currUser}/>
+        <Navbar allHotSpringData ={props.allHotSpringData} currUser={props.currUser}/>
         <div>
         { handleData == 'Login' ? <h2>{'Log In'}</h2> : <h2>{`${handleData.msg}`}</h2>}
         </div>
