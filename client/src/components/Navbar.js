@@ -2,14 +2,22 @@ import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import {Col} from 'react-bootstrap'
 import { slide as Menu } from 'react-burger-menu'
-// import User from "../../../server/models/User";
+import {useNavigate} from 'react-router-dom';
+import { ReactSearchAutocomplete } from "react-search-autocomplete";
 
 
 export default function Navbar (props) {
-	
+
+	const [searchString, setSearchString] = React.useState("");
 	const [getLogoutRes, setGetLogOutRes] = React.useState('')
     const [isLoggedOut, setIsloggedOut] = React.useState(false)
-// console.log(props.currUser);
+    const [matchedHotSpring, setMatchedHotSpring] = React.useState()
+    const [allhotSpringDataForAutoComplete, setAllhotSpringDataForAutoComplete] = React.useState([])
+	const [formData, setFormData] = React.useState(
+        {searchHS: ""}
+    )
+	
+console.log(props.allHotSpringData);
 	const getLogOut = async () => {
 		if(!localStorage.getItem('currUser')){
 			return undefined
@@ -27,33 +35,68 @@ export default function Navbar (props) {
 		  return data
 		}
 	  }
-// console.log(props.allHotSpringData);
+	  function mapAllHSDataWithID(){
+		let hotSpringWithIDArr= props.allHotSpringData.map((obj,index) => ({...obj, id:index}))
+		setAllhotSpringDataForAutoComplete(hotSpringWithIDArr)
+	  }
+	  function handleChange(event) {
+        setFormData(prevFormData => {
+			console.log(formData)
+            return {
+				
+                ...prevFormData,
+                [event.target.name]: event.target.value
+            }
+        })}
+		function handleSubmit(event) {
+			event.preventDefault()
+			console.log(formData)
+		}
 // let data = props.allHotSpringData
 
-// const handleOnSearch = (string, results) => {
-// 	console.log(string, results);
-// 	setSearchString(string);
-//   };
-// const handleOnSelect = (string) => {
-// 	console.log(string.name);
-// 	setSearchString(string.name);
-//   };
+const handleOnSearch = (string, results) => {
+	console.log(string, results);
+	setSearchString(string);
+  };
+const handleOnSelect = (string) => {
+	console.log(string.name);
+	setSearchString(string.name);
+  };
 
-//   const handleOnFocus = () => {
-// 	console.log("Focused");
-//   };
+  const handleOnFocus = () => {
+	console.log("Focused");
+  };
 
-//   const formatResult = (data) => {
-// 	console.log(data);
-// 	return (
-// 	  <div className="result-wrapper">
-// 		<span className="result-span">id: {item._id}</span>
-// 		<span className="result-span">name: {item.name}</span>
-// 	  </div>
-// 	);
-//   };
+  const formatResult = (item) => {
+	console.log(item);
+	return (
+	  <div className="result-wrapper">
+		<span className="result-span">id: {item._id}</span>
+		<span className="result-span">name: {item.name}</span>
+	  </div>
+	);
+  };
+const navigate = useNavigate();
+function getIndHSPage(searchString){
+	console.log(allhotSpringDataForAutoComplete);
+	console.log(searchString);
+	if(!allhotSpringDataForAutoComplete.some(e => e.name == (searchString))){
+		alert(`Cannot Find ${searchString}`)
+	}
+	else{
+		let matchedHotSpring = allhotSpringDataForAutoComplete.filter((x) => x.name == searchString)
+		// matchedHotSpring = matchedHotSpring.toLowerCase()
+		console.log(matchedHotSpring[0]._id);
+		navigate(`/sitedetail/${matchedHotSpring[0]._id}`, {replace: true})
+	}
+}
 
-	//   console.log(props.currUser);
+
+React.useEffect(() => {
+    mapAllHSDataWithID()
+     },[]);
+
+	//   console.log(matchedHotSpring);
     return(
 		<header>
 			<div className="container clearfix">
@@ -91,11 +134,36 @@ export default function Navbar (props) {
 										<br></br><br></br><li className="menu-item"><Link className="signuploginNav3" to={'#'}>Contact</Link></li>
 									</ul><br></br><br></br><br></br>
 
-									<form id="search" action="#" method="GET">							
-											<input type="text" 
+									<form onSubmit={handleSubmit} id="search" action="#" method="GET">	
+								<div className="autocompletediv2" style={{ width: 250, margin: 0, height: "400px", background: "#373a47" }}>					
+								<ReactSearchAutocomplete
+											showIcon={false}
+											styling={{
+												height: "70px",
+												border: "0px solid #e7402f",
+												borderRadius: "4px",
+												backgroundColor: "#373a47",
+												color:"white",
+												boxShadow: "none",
+												fontSize: "16px",
+												placeholderColor: "white",
+												hoverBackgroundColor: "#e7402f",
+												textAlign: "center",
+												clearIconMargin: "3px 8px 0 0",
+												zIndex: 2,
+											  }}
+											items={allhotSpringDataForAutoComplete}
+											onSearch={handleOnSearch}
+											onSelect={handleOnSelect}
+											inputSearchString={searchString}
+											autoFocus
 											placeholder="Search here..." 
-											name="s"/>
-											<Link to={'#'}></Link>							
+											onChange={handleChange}
+											name="searchHS"
+											value={formData.searchHS}
+											/>
+											<button className="searchbutton" onClick={()=> getIndHSPage(searchString)}><i class="icon-search"></i></button>	
+										</div>								
 									</form>
 									</Menu></Col>
 						
@@ -107,22 +175,45 @@ export default function Navbar (props) {
 								
 								<ul  id="nav" className="nav">
 									<li className="active selected"><Link to={'/'}>Home</Link></li>
-									{/* <li className="divider-vertical"></li> */}
 									<li><Link to ='/gallery'>Gallery
 									</Link></li>
 									<li><Link to={'#'}>Map</Link></li>
 									<li>{props.currUser===null || props.currUser==undefined || !localStorage.getItem('currUser') ? <Link to={`/profile1`}>Profile</Link> : <Link to={`/profile/${props.currUser._id}`}>Profile</Link> }</li>
 									<li><Link to={'#'}>Contact</Link></li>
-									{/* <li><Link to={'#'}>Elements</Link></li> */}
 								</ul>
-								<form id="search" action="#" method="GET">							
-										<input type="text" 
-										// onfocus="if(this.value =='Search here...' ) this.value=''" onblur="if(this.value=='') this.value='Search here...'" 
-										placeholder="Search here..." 
-										name="s"/>
-										<Link to={'#'}></Link>							
-								</form>
-    							
+								<form onSubmit={handleSubmit} id="search" action="#" method="GET">	
+								<div className="autocompletediv" style={{ width: 150, margin: 0, height: "400px" }}>					
+								<ReactSearchAutocomplete
+											showIcon={false}
+											styling={{
+												height: "50px",
+												border: "0px solid #e7402f",
+												borderRadius: "4px",
+												backgroundColor: "black",
+												color: "white",
+												boxShadow: "none",
+												fontSize: "16px",
+												placeholderColor: "white",
+												hoverBackgroundColor: "#e7402f",
+												textAlign: "center",
+												clearIconMargin: "3px 8px 0 0",
+												zIndex: 2,
+											  }}
+											items={allhotSpringDataForAutoComplete}
+											onSearch={handleOnSearch}
+											onSelect={handleOnSelect}
+											inputSearchString={searchString}
+											autoFocus
+											placeholder="Search here..." 
+											onChange={handleChange}
+											name="searchHS"
+											value={formData.searchHS}
+											/>
+											
+										</div>	
+										<button className="searchbutton" onClick={()=> getIndHSPage(searchString)}><i class="icon-search"></i></button>								
+									</form>
+									
 							</div>
 						</div></Col>
 					</div>

@@ -32,7 +32,7 @@ export default function ByState (props) {
 
     return(
         <div>
-            <div className="row">
+            <div className="row mt-5">
                 <div className="col-md-12">
                 {/* <div className="titleborder">
                     </div> */}
@@ -47,7 +47,7 @@ export default function ByState (props) {
 		    </div>
 
             
-            <div className="menu-tabs container-fluid mt-3  ">
+            <div className="menu-tabs container-fluid mt-5  ">
 
                 <div className="menu-tab d-flex justify-content-around flex-wrap col  mt-1">
                     <button className=" btn-primary btn-warning " onClick={() => filterItem('CA')}>California</button>

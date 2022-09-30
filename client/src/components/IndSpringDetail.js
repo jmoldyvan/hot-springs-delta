@@ -129,7 +129,7 @@ export default function IndSpringDetail (props) {
     return(
         
 <div>
-        <Navbar currUser={props.currUser}/>
+        <Navbar allHotSpringData ={props.allHotSpringData} currUser={props.currUser}/>
     <div className="container">
 		<div className="page-header">
 			<div className="headerdivider">

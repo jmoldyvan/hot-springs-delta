@@ -14,7 +14,7 @@ export default function Profile1 (props) {
 
     <div>
         <Navbar currUser={props.currUser} allHotSpringData={props.allHotSpringData}/>
-        <div className="container">
+        <div className="container mt-5" >
 		<div className="row">
 			<div className="col-md-8 span-fixed-sidebar">
 				<div className="hero-unit">

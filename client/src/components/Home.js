@@ -19,7 +19,7 @@ export default function Home (props) {
 		currUser={props.currUser}
 		allHotSpringData={props.allHotSpringData}
 	/>
-	<div className="container">
+	<div className="container mt-5">
 			<div className="row text-center intro">
 				<div className="col-md-12">
 				<div className="titleborder">
