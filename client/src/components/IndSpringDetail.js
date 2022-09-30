@@ -3,8 +3,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import AccordionInfo from "./IndSpringDetailcomponents/AccordionInfo";
 import SpringCarousel from "./IndSpringDetailcomponents/SpringCarousel";
-// import { Carousel } from 'react-responsive-carousel';
-import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import notLiked from '../img/notLiked.png'
 import liked from '../img/liked.png'
@@ -15,7 +13,6 @@ export default function IndSpringDetail (props) {
     let currentHotSpringSite;
     const id = useParams();
 	let user = props.currUser
-    // console.log(props.allHotSpringData);
     props.allHotSpringData.forEach(e => {
         if(e._id === id.id){
             currentHotSpringSite = e
@@ -28,7 +25,6 @@ export default function IndSpringDetail (props) {
 
 	const [handleData, setHandleData] = React.useState(false)
 	const [allHotSpringReviews, setAllHotSpringReviews] = React.useState([])
-	// const [user, setUser] = React.useState([0])
 
 		const [fav, setFav] = React.useState({isFavorite: false})
 		
@@ -65,24 +61,17 @@ export default function IndSpringDetail (props) {
         const getAllReviews = async () => {
 			const allReviewData = await Promise.resolve(
 				fetch('http://localhost:5000/reviews/reviewInfo').then((res) => res.json()))
-				// console.log(allReviewData);
-				// const id = useParams();
 				let currHotSpringReviews = allReviewData.filter((x) => x.hotSpring === id.id) 
 				const currSpringReviews = 
 				currHotSpringReviews.map((thing) => (thing))                           
                 setAllHotSpringReviews(currSpringReviews); 		           
             }
-			// console.log(allHotSpringReviews);
         const postReview = async () => {
-            // console.log('post reveiw acheived ');
-            // console.log(formData);
                 let response = await Promise.resolve(fetch (`http://localhost:5000/reviews/createReview/:id`, {
                 method: 'post', body: JSON.stringify(formData), //put your state from inputs/text area//),
                 headers: { 'Content-Type': 'application/json' }
                 }).then((res) => res.json()))
-                // console.log(response);
                 let data = response
-                // console.log(data);
 				setAllHotSpringReviews(prevVal => {
 					return prevVal.map((guessSquare) => {
 						return {...guessSquare, formData}
@@ -92,19 +81,13 @@ export default function IndSpringDetail (props) {
             }  
 
 			const likeHotSpring = async () => {
-				// console.log(id.id);
-				// console.log(user._id);
 					let response = await Promise.resolve(fetch (`http://localhost:5000/hotspringdbinfo/like/${id.id}`, {
 					method: 'put', body: JSON.stringify({user: user._id}) ,//put your state from inputs/text area//),
 					headers: { 'Content-Type': 'application/json' }
 					}).then((res) => res.json()))
-					// console.log(response);
 					let data = response
-					// console.log(data);
 				}  
-				// console.log(props.allHotSpringData);
 			function doesUserIsLiked() {
-				// console.log(props.allHotSpringData);
 				if(currentHotSpringSite.usersWhoLiked.includes(props.currUser._id)){
 						console.log('it is icluded');
 						return setFav(prevContact => ({

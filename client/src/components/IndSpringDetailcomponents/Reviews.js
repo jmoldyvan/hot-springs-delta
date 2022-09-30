@@ -14,17 +14,17 @@ export default function  (props) {
         params: id}
     )
 
-    
-
 let navigate = useNavigate();
-React.useEffect(() => {
-        if (isLoggedIn==true){
-           return navigate("/");
-        }
-     },[isLoggedIn]);
-React.useEffect(() => {
-    display()
-     },[Res]);
+
+    React.useEffect(() => {
+            if (isLoggedIn==true){
+            return navigate("/");
+            }
+    },[isLoggedIn]);
+
+    React.useEffect(() => {
+            display()
+    },[Res]);
 
 
         function handleChange(event) {
@@ -41,7 +41,7 @@ React.useEffect(() => {
             console.log(formData)
         }
     
-        const  = async () => {
+        const placeReview = async () => {
             console.log('post  acheived ');
             console.log(formData);
                 let response = await Promise.resolve(fetch ('http://localhost:5000/', {
@@ -74,7 +74,7 @@ return(
                     <input
                         // maybe a checkbox if they would reccomend?
                     />
-                    <button onClick={}  > Submit Your Review!</button>
+                    <button onClick={placeReview}  > Submit Your Review!</button>
             </form>
         </div>
         <Footer/>

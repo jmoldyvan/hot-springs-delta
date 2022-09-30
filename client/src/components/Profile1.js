@@ -1,8 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { useParams } from 'react-router-dom';
-
 
 export default function Profile1 (props) {
 	
@@ -55,7 +53,6 @@ export default function Profile1 (props) {
 					<div className="tab-pane fade active in" id="home">
 						<ul className="sidebar-latest">
 							<li className="clearfix">
-							{/* <a href="#"><img src="img/demo/300x200.png" className="attachment-thumbnail" alt=""/></a> */}
 							<a href="#">Android 4.3 to hit Sony Xperia smartphones, tablet</a><br/>
 							<small><a href="#"><span className="entry-date">July 25, 2013</span></a></small>
 							</li>

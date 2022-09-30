@@ -3,15 +3,11 @@ import MainCarousel from "./homeComponents/MainCarousel"
 import HSNear from "./homeComponents/HSNear"
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Loading from './Loading'
 import {Link} from "react-router-dom"
 
 
 export default function Home (props) {
 	
-	console.log(props.currUser);
-
-  // console.log(hotSpringDataObject);
     return(
 	<div>
 
@@ -36,13 +32,9 @@ export default function Home (props) {
 					</div>
 				</div>
 			</div>
-
-
-
 			<MainCarousel
 				hotSpringDataObject = {props.hotSpringDataObject}
 			/>	
-
 			
 	<div className="titleborder">
 						<div>
@@ -88,13 +80,11 @@ export default function Home (props) {
 						
 					</div>
 				</div>
-				{/* <!--/col-md-3--> */}
 				<div className="col-md-3">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
 							<i className="fontawesome-icon medium circle-white center icon-compass"></i>
 						</div>
-						{/* <!--icon box top --> */}
 						<h4>View Map</h4>
 						<p>
 							Check out the interactive map with all of the West Coast Hot Springs and information.
@@ -103,15 +93,12 @@ export default function Home (props) {
 						<p><Link to={'/Login'} className="btn btn-primary btn-large"> Map → </Link></p>
 						</p>
 					</div>
-					{/* <!--grey box --> */}
 				</div>
-				{/* <!--/col-md-3--> */}
 				<div className="col-md-3">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
 							<i className="fontawesome-icon medium circle-white center icon-envelope"></i>
 						</div>
-						{/* <!--icon box top --> */}
 						<h4>Contact</h4>
 						<p>
 							Send over any new hot spring reccomendations or updates on any information!
@@ -120,11 +107,8 @@ export default function Home (props) {
 						<p><Link to={'/Login'} className="btn btn-primary btn-large"> Contact → </Link></p>
 						</p>
 					</div>
-					{/* <!--grey box --> */}
 				</div>
 			</div>
-			
-			
 	</div>
 		<Footer /> 
 	</div>

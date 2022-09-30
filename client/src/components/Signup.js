@@ -32,7 +32,6 @@ export default function Signup (props) {
             
         function handleSubmit(event) {
             event.preventDefault()
-            // console.log(formData)
         }
     
         const getSignup = async () => {

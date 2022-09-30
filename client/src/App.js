@@ -55,13 +55,11 @@ export default function App() {
       let latLng = {  }
       latLng.lng = pos.coords.longitude;
       latLng.lat = pos.coords.latitude;
-      // console.log(latLng);
       setUserLatLng(latLng)
       return latLng
     }
     const getFive = async () => {
       let latLng = await currLatLng()
-      // console.log('fiverun');
       try{let response = await Promise.resolve(fetch ('http://localhost:5000/hotspringdbinfo/findNearest', {
         method: 'post', body: JSON.stringify(latLng),
         headers: { 'Content-Type': 'application/json' }
@@ -112,8 +110,6 @@ export default function App() {
   return <Loading />;
   }
 
-  // console.log(fiveCloseHS);
-  // console.log(allHotSpringData);/
   function randomHotSpring() {
     return allHotSpringData[Math.floor(Math.random()*allHotSpringData.length)]
   }
@@ -181,7 +177,6 @@ export default function App() {
     const saved = localStorage.getItem("currUser");
     const initialValue = JSON.parse(saved);
     setCurrUser(initialValue)}
-    // console.log(currUser);
 }
 console.log(signalForCurrUser);
 function signal(){

@@ -7,7 +7,6 @@ export default function Footer () {
         <div>
 	<div className="footer footerdark">
 		<div className="text-center wraptotop">
-            {/* needs link to top? */}
 			<Link  to={'/'} className="totop"><i className="icon-home 2x"></i></Link >
 		</div>
 		<div className="container">
@@ -34,13 +33,11 @@ export default function Footer () {
 	<div className="footerbottom footerbottomdark">
 		<div className="container">
 			<div className="row">
-				{/* <!-- left --> */}
 				<div className="col-md-4 smallspacetop">
 					<p className="smaller">
 						
 					</p>
 				</div>
-				{/* <!-- right --> */}
 				<div className="col-md-8 smallspacetop">
 					<div className="pull-right smaller">
 						<ul className="footermenu">
@@ -54,7 +51,6 @@ export default function Footer () {
 					<div className="clearfix">
 					</div>
 				</div>
-				{/* <!-- end right --> */}
 			</div>
 		</div>
 	</div>

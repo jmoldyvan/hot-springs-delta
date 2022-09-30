@@ -52,7 +52,6 @@ console.log(props.allHotSpringData);
 			event.preventDefault()
 			console.log(formData)
 		}
-// let data = props.allHotSpringData
 
 const handleOnSearch = (string, results) => {
 	console.log(string, results);
@@ -85,7 +84,6 @@ function getIndHSPage(searchString){
 	}
 	else{
 		let matchedHotSpring = allhotSpringDataForAutoComplete.filter((x) => x.name == searchString)
-		// matchedHotSpring = matchedHotSpring.toLowerCase()
 		console.log(matchedHotSpring[0]._id);
 		navigate(`/sitedetail/${matchedHotSpring[0]._id}`, {replace: true})
 	}
@@ -96,7 +94,6 @@ React.useEffect(() => {
     mapAllHSDataWithID()
      },[]);
 
-	//   console.log(matchedHotSpring);
     return(
 		<header>
 			<div className="container clearfix">

@@ -33,7 +33,6 @@ export default function Login (props) {
             
         function handleSubmit(event) {
             event.preventDefault()
-            // console.log(formData)
         }
     
         const getLogin = async () => {
@@ -46,11 +45,8 @@ export default function Login (props) {
                 method: 'post', body: JSON.stringify(formData), //put your state from inputs/text area//),
                 headers: { 'Content-Type': 'application/json' }
                 }).then((res) => res.json()))
-                // console.log(response);
                 let data = response
-                // console.log(data);
                 setHandleData(data[0])
-                // console.log(handleData);
                 if(data.length > 1){
                     localStorage.setItem('currUser', JSON.stringify(data[1]))
                     setIsloggedIn(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true )
@@ -64,8 +60,6 @@ React.useEffect(() => {
     }
      },[isLoggedIn]);
 
-// console.log(isLoggedIn);
-// console.log(loginUserInfo);
 return(
     <div>
         <Navbar allHotSpringData ={props.allHotSpringData} currUser={props.currUser}/>

@@ -1,19 +1,7 @@
 import React, {useState} from 'react'
 import "../Gallerycomponents/tab.css";
-// import Menu from "./menu";
+import { Link } from "react-router-dom";
 
-import { 
-	 
-	// Route, Routes, 
-	Link } from "react-router-dom";
-
-// fetch all the images from the api in the parent
-// store images in a state with ca,nv,or and id
-// pass state through props to here
-// 
-// map all images to a list
-// set up a toggle function on CLick to the states, buttons
-// toggle the displayed images through a click event using ca,nv,or to make specific appear or dissapear
 
 export default function ByState (props) {
 
@@ -34,8 +22,6 @@ export default function ByState (props) {
         <div>
             <div className="row mt-5">
                 <div className="col-md-12">
-                {/* <div className="titleborder">
-                    </div> */}
                     <div className="titleborder">
                         <div>
                             Filter Hot Springs By State
@@ -58,7 +44,6 @@ export default function ByState (props) {
                 </div>
 
             </div>
-            {/* my main items section  */}
             <div className="menu-items container-fluid mt-1">
                 <div className="row">
                     <div className="col-11 mx-auto">
