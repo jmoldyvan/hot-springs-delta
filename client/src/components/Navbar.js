@@ -111,8 +111,8 @@ React.useEffect(() => {
 							<ul className="social-icons list-soc">
 							<li><a href='https://twitter.com/JordanMoldovan'><i className="icon-twitter"></i></a></li>
 							<li><a href='https://www.linkedin.com/in/jordan-moldovan/'><i className="icon-linkedin"></i></a></li>
-							<li><a href='https://github.com/jmoldyvan'><i className="icon-google-plus"></i></a></li>
-							<li><a href={'https://jordan-moldovan.netlify.app/'}><i className=""></i></a></li>
+							<li><a href='https://github.com/jmoldyvan'><i class="icon-github"></i></a></li>
+							<li><a href={'https://jordan-moldovan.netlify.app/'}><i className="icon-male"></i></a></li>
 							</ul>
 							<div class="infophone">
 							<span ><Link className="signuploginNav2" to={'/Login'}>Login</Link></span>
@@ -182,7 +182,7 @@ React.useEffect(() => {
 									<li><Link to={'#'}>Contact</Link></li>
 								</ul>
 								<form onSubmit={handleSubmit} id="search" action="#" method="GET">	
-								<div className="autocompletediv" style={{ width: 150, margin: 0, height: "400px" }}>					
+								<div className="autocompletediv" style={{ width: 150, margin: 0, height: "200px" }}>					
 								<ReactSearchAutocomplete
 											showIcon={false}
 											styling={{
@@ -192,7 +192,7 @@ React.useEffect(() => {
 												backgroundColor: "black",
 												color: "white",
 												boxShadow: "none",
-												fontSize: "16px",
+												fontSize: "14px",
 												placeholderColor: "white",
 												hoverBackgroundColor: "#e7402f",
 												textAlign: "center",

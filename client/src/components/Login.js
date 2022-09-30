@@ -69,10 +69,10 @@ React.useEffect(() => {
 return(
     <div>
         <Navbar allHotSpringData ={props.allHotSpringData} currUser={props.currUser}/>
-        <div>
+        <div className="mt-5">
         { handleData == 'Login' ? <h2>{'Log In'}</h2> : <h2>{`${handleData.msg}`}</h2>}
         </div>
-        <div>
+        <div className="mt-5">
             <form onSubmit={handleSubmit}>
                     <input
                         type="text"

@@ -27,27 +27,6 @@ export default function Footer () {
 				<div className="col-md-4">
 					<h1 className="title"></h1>
 				</div>
-				{/* <div className="col-md-4">
-					<h1 className="title">Questions?</h1>
-					<div className="done">
-						<div className="alert alert-success">
-							<button type="button" className="close" data-dismiss="alert">×</button>
-							Your message has been sent. Thank you!
-						</div>
-					</div>
-					<form method="post" action="contact.php" id="contactform">
-						<div className="form">
-							<div className="controls controls-row">
-								<input className="col-md-6" type="text" name="name" placeholder="Name"/>
-								<input className="col-md-6" type="text" name="email" placeholder="E-mail"/>
-							</div>
-							<div className="controls">
-								<textarea className="col-md-12" name="comment" rows="4" placeholder="Message"></textarea>
-							</div>
-							<input type="submit" id="submit" className="btn" value="Send"/>
-						</div>
-					</form>
-				</div> */}
 			</div>
 		</div>
 	</div>
@@ -68,9 +47,8 @@ export default function Footer () {
 									<li><Link to={'/'}>Home</Link></li>
 									<li><Link to ='/gallery'>Gallery
 									</Link></li>	
-									<li><Link to={'#'}>Elements</Link></li>
-									<li><Link to={'#'}>Elements</Link></li>
-									<li><Link to={'#'}>Elements</Link></li>
+									<li><Link to={'#'}>Map</Link></li>
+									<li><Link to={'#'}>Contact</Link></li>
 						</ul>
 					</div>
 					<div className="clearfix">

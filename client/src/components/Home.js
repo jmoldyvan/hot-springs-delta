@@ -76,11 +76,11 @@ export default function Home (props) {
 				<div className="col-md-3">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
-							<i className="fontawesome-icon medium circle-white center icon-cogs"></i>
+							<i className="fontawesome-icon medium circle-white center icon-user"></i>
 						</div>
 						<h4>Sign Up/Log In</h4>
 						<p>
-							Lorem ipsum dolor sit adipiscing elit. Praesent tempus eleifend risus ut congue eset nec lacus.
+							Create an account to leave reviews and like hot spring locations. Track your liked hot springs for on your profile page!
 						</p>
 						<p>
 							<Link to={'/Signup'} className="btn btn-primary btn-large"> Signup → </Link></p>
@@ -92,15 +92,15 @@ export default function Home (props) {
 				<div className="col-md-3">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
-							<i className="fontawesome-icon medium circle-white center icon-pencil"></i>
+							<i className="fontawesome-icon medium circle-white center icon-compass"></i>
 						</div>
 						{/* <!--icon box top --> */}
 						<h4>View Map</h4>
 						<p>
-							Lorem ipsum dolor sit adipiscing elit. Praesent tempus eleifend risus ut congue eset nec lacus.
+							Check out the interactive map with all of the West Coast Hot Springs and information.
 						</p>
 						<p>
-							<Link to={'/'} >Read more →</Link>
+						<p><Link to={'/Login'} className="btn btn-primary btn-large"> Map → </Link></p>
 						</p>
 					</div>
 					{/* <!--grey box --> */}
@@ -109,15 +109,15 @@ export default function Home (props) {
 				<div className="col-md-3">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
-							<i className="fontawesome-icon medium circle-white center icon-magic"></i>
+							<i className="fontawesome-icon medium circle-white center icon-envelope"></i>
 						</div>
 						{/* <!--icon box top --> */}
 						<h4>Contact</h4>
 						<p>
-							Lorem ipsum dolor sit adipiscing elit. Praesent tempus eleifend risus ut congue eset nec lacus.
+							Send over any new hot spring reccomendations or updates on any information!
 						</p>
 						<p>
-							<Link to={'/'} >Read more →</Link>
+						<p><Link to={'/Login'} className="btn btn-primary btn-large"> Contact → </Link></p>
 						</p>
 					</div>
 					{/* <!--grey box --> */}
