@@ -60,7 +60,7 @@ export default function App() {
     }
     const getFive = async () => {
       let latLng = await currLatLng()
-      try{let response = await Promise.resolve(fetch ('http://localhost:5000/hotspringdbinfo/findNearest', {
+      try{let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api.onrender.com/findNearest', {
         method: 'post', body: JSON.stringify(latLng),
         headers: { 'Content-Type': 'application/json' }
       }).then((res) => res.json()))
@@ -76,7 +76,7 @@ export default function App() {
           // here we use promise all to promise the entire array rawHotSpringAPIData
           // set the state AllHotSpringData using the function
           const allHotSpringData = await Promise.resolve(
-              fetch('http://localhost:5000/hotspringdbinfo').then((res) => res.json()))            
+              fetch('https://west-coast-hot-springs-api.onrender.com/hotspringdbinfo').then((res) => res.json()))            
           setAllHotSpringData(allHotSpringData)
           const allHotSpringDataNames = 
           allHotSpringData.map((thing, index) => ({ id: index, name: thing.name}))                           
