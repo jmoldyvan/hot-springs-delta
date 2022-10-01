@@ -44,7 +44,7 @@ let navigate = useNavigate();
         const placeReview = async () => {
             console.log('post  acheived ');
             console.log(formData);
-                let response = await Promise.resolve(fetch ('http://localhost:5000/', {
+                let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api.onrender.com/', {
                 method: 'post', body: JSON.stringify(formData), //put your state from inputs/text area//),
                 headers: { 'Content-Type': 'application/json' }
                 }).then((res) => res.json()))

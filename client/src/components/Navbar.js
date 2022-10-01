@@ -23,7 +23,7 @@ console.log(props.allHotSpringData);
 			return undefined
         }
 		console.log('post LogOut acheived ');
-			let response = await Promise.resolve(fetch ('http://localhost:5000/logOut', {}).then((res) => res.json()))
+			let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api.onrender.com/logOut', {}).then((res) => res.json()))
 			let data = response
 		if(data.msg == 'ERROR'){
 		  setGetLogOutRes('ERROR LOGGING OUT')

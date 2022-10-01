@@ -16,7 +16,7 @@ export default function Profile (props) {
 
 		const getAllReviews = async () => {
 			const allReviewData = await Promise.resolve(
-				fetch('http://localhost:5000/reviews/reviewInfo').then((res) => res.json()))
+				fetch('https://west-coast-hot-springs-api.onrender.com/reviews/reviewInfo').then((res) => res.json()))
 				let currHotSpringReviews = allReviewData.filter((x) => x.user === props.currUser._id) 
 				const currSpringReviews = 
 				currHotSpringReviews.map((thing) => (thing))                           
@@ -27,7 +27,7 @@ export default function Profile (props) {
 
 			const deleteReview = async (isOfHotSpring) => {
 				console.log('delete acheived ');
-					let response = await Promise.resolve(fetch ('http://localhost:5000/reviews/deleteReview/:id', {
+					let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api.onrender.com/reviews/deleteReview/:id', {
 					method: 'delete', body: JSON.stringify(isOfHotSpring), //put your state from inputs/text area//),
 					headers: { 'Content-Type': 'application/json' }
 					}).then((res) => res.json()))
