@@ -81,7 +81,7 @@ export default function App() {
           const allHotSpringDataNames = 
           allHotSpringData.map((thing, index) => ({ id: index, name: thing.name}))                           
               setAllHotSpringNames(allHotSpringDataNames); 
-          // turn off loading compnenet
+          // turn off loading compnene
           setLoading(false);
       }   catch (error) {
           console.log(error);
