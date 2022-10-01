@@ -5,7 +5,7 @@ const homeController = require('../controllers/home')
 const hotSpringController = require('../controllers/hotSpring')
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
-router.get('/', homeController.getIndex)
+// router.get('/', homeController.getIndex)
 router.get('/hotspringdbinfo', hotSpringController.getHSDBInfo)
 router.post('/hotspringdbinfo/findNearest', hotSpringController.findNearest)
 router.post('/hotspringdbinfo/findNearest', hotSpringController.findNearest)

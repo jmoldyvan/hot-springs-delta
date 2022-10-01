@@ -1,7 +1,7 @@
-const path = require("path");
+// const path = require("path");
 
-module.exports = {
-    getIndex: (req,res)=>{
-        res.render("index");
-    }
-}
+// module.exports = {
+//     getIndex: (req,res)=>{
+//         res.render("index");
+//     }
+// }
