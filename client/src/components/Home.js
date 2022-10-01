@@ -24,7 +24,7 @@ export default function Home (props) {
 					</div>
 					<h1>Welcome to <span className="primarycolor">West Coast Hot Springs</span></h1>
 					<p className="featured lead bottom10"><br/>
-						Information of hot springs locations in the Pacific Northwest for your next refreashing getaway.
+						Information of hot springs locations in the Pacific Northwest for your next refreshing getaway.
 					</p>
 					<div className="titleborder">
 						<div>
