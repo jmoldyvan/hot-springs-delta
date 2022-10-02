@@ -152,20 +152,26 @@ body.boxed div.body {
 	font-style:normal;
 }
 
+.sc-eDvSVe{
+	margin-top: 2px;
+	margin-left: 20px
+}
+
 #search{
 	display: flex;
+	margin-top: 10px;
 	margin-left: 5px;
 }
 .searchbutton{
 	background: #e7402f;
-	color: rgb(0, 0, 0);
-	padding: 10px 24px;
+	color: rgb(255, 255, 255);
+	padding: 10px 30px;
 	margin-top: 2px;
 	font-size: 18px;
-	height: 47px;
+	height: 50px;
 }
 
-.autocompletediv{
+.autocompletediv>input{
 	margin: 0;
 }
 .autocompletediv2{
@@ -244,8 +250,8 @@ body.boxed div.body {
   }
   
   /* Styling of overlay */
-  .bm-overlay {
-	background: rgba(0, 0, 0, 0.3);
+  .bm-overlay{
+	background: rgba(0, 0, 0, 0.3)!important;
   }
 
 img {
@@ -431,19 +437,20 @@ header {
 	margin-top:20px;
 	background:#222;
 	max-height:50px;
-	 border-radius:0;
+	 border-radius:5px;
 }
 .navbar {
 	border:0;
 }
 .navbar-inner {
+	margin-top: -7px;
 	 	border:0;
 	padding-left:0;
 	padding-right:0;
 }
 .navbar .nav>li>a,.navbar .nav>li>a:focus,.navbar .nav>li>a:hover {
 	color:#fff;
-	padding:0px 20px 0px;
+	padding:0px 35px 0px;
 	-webkit-transition:all 0.3s ease;
 	-moz-transition:all 0.3s ease;
 	-o-transition:all 0.3s ease;
@@ -496,7 +503,7 @@ header {
 }
 .list-soc {
 	overflow:hidden;
-	margin-bottom:5px;
+	margin-bottom:10px;
 	margin-top:25px;
 }
 .list-soc li {
@@ -531,7 +538,7 @@ ul {
 	text-transform:uppercase;
 }
 #search {
-	margin:-50px 0 0 0;
+	margin:-53px 0 0 0;
 	overflow:hidden;
 	position:relative;
 	float:right;
@@ -546,7 +553,7 @@ ul {
 	color:#777;
 		margin:0;
 	padding:0 30px 0 0;
-	height:50px;
+	height:40px;
 	-webkit-border-radius:0;
 	-moz-border-radius:0;
 	border-radius:0;
@@ -1002,6 +1009,7 @@ ul.footermenu li a {
 	cursor:default !important;
 	height:auto;
 }
+
 .list_carousel.responsive {
 	width:auto;
 	margin-left:-10px;
@@ -1010,6 +1018,7 @@ ul.footermenu li a {
 	float:none;
 	clear:both;
 }
+
 .list_carousel .carousel_nav {
 	position:relative;
 	margin-top:-43px;

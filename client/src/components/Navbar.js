@@ -136,6 +136,7 @@ React.useEffect(() => {
 								<ReactSearchAutocomplete
 											showIcon={false}
 											styling={{
+												margin:"5px",
 												height: "70px",
 												border: "0px solid #e7402f",
 												borderRadius: "4px",
@@ -179,10 +180,11 @@ React.useEffect(() => {
 									<li><Link to={'#'}>Contact</Link></li>
 								</ul>
 								<form onSubmit={handleSubmit} id="search" action="#" method="GET">	
-								<div className="autocompletediv" style={{ width: 150, margin: 0, height: "200px" }}>					
-								<ReactSearchAutocomplete
+								<div className="autocompletediv" style={{ width: 150, height: "200px" }}>					
+								<ReactSearchAutocomplete className="autoinput"
 											showIcon={false}
 											styling={{
+												margin:"5px",
 												height: "50px",
 												border: "0px solid #e7402f",
 												borderRadius: "4px",

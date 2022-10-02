@@ -16,7 +16,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
         return(
             <div className="row">
 			<div className="col-md-12 col-12  col-lg-12 col-xl-12 my-5">
-				<Carousel autoPlay={true} infiniteLoop={true} showArrows={true} swipeable={true} stopOnHover={true} emulateTouch={true}>
+				<Carousel autoPlay={true} infiniteLoop={true} showArrows={true} swipeable={true} stopOnHover={true} emulateTouch={true} showThumbs={false}>
                 <div>
                             <img style={pointerOn} src={props.hotSpringDataObject[0].image} />
                         <Link to={`/sitedetail/${props.hotSpringDataObject[0].id}`}><p className="legend">{props.hotSpringDataObject[0].name}</p></Link>
