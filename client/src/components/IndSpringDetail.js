@@ -60,14 +60,14 @@ export default function IndSpringDetail (props) {
     
         const getAllReviews = async () => {
 			const allReviewData = await Promise.resolve(
-				fetch('https://west-coast-hot-springs-api.onrender.com/reviews/reviewInfo').then((res) => res.json()))
+				fetch('https://west-coast-hot-springs-api-5czk.onrender.com/reviews/reviewInfo').then((res) => res.json()))
 				let currHotSpringReviews = allReviewData.filter((x) => x.hotSpring === id.id) 
 				const currSpringReviews = 
 				currHotSpringReviews.map((thing) => (thing))                           
                 setAllHotSpringReviews(currSpringReviews); 		           
             }
         const postReview = async () => {
-                let response = await Promise.resolve(fetch (`https://west-coast-hot-springs-api.onrender.com/reviews/createReview/:id`, {
+                let response = await Promise.resolve(fetch (`https://west-coast-hot-springs-api-5czk.onrender.com/reviews/createReview/:id`, {
                 method: 'post', body: JSON.stringify(formData), //put your state from inputs/text area//),
                 headers: { 'Content-Type': 'application/json' }
                 }).then((res) => res.json()))
@@ -81,7 +81,7 @@ export default function IndSpringDetail (props) {
             }  
 
 			const likeHotSpring = async () => {
-					let response = await Promise.resolve(fetch (`https://west-coast-hot-springs-api.onrender.com/hotspringdbinfo/like/${id.id}`, {
+					let response = await Promise.resolve(fetch (`https://west-coast-hot-springs-api-5czk.onrender.com/hotspringdbinfo/like/${id.id}`, {
 					method: 'put', body: JSON.stringify({user: user._id}) ,//put your state from inputs/text area//),
 					headers: { 'Content-Type': 'application/json' }
 					}).then((res) => res.json()))
