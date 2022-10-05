@@ -26,7 +26,7 @@ export default function Profile (props) {
             }
 
 			const deleteReview = async (isOfHotSpring) => {
-				console.log('delete acheived ');
+				// console.log('delete acheived ');
 					let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api.onrender.com/reviews/deleteReview/:id', {
 					method: 'delete', body: JSON.stringify(isOfHotSpring), //put your state from inputs/text area//),
 					headers: { 'Content-Type': 'application/json' }

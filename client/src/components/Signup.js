@@ -38,13 +38,13 @@ export default function Signup (props) {
             if(localStorage.getItem('currUser')){
                 return setHandleData( {msg: 'You Are Already Logged In'})
             }
-            console.log('post Signup acheived ');
+            // console.log('post Signup acheived ');
                 let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/signup', {
                 method: 'post', body: JSON.stringify(formData), //put your state from inputs/text area//),
                 headers: { 'Content-Type': 'application/json' }
                 }).then((res) => res.json()))
                 let data = response
-                console.log(data);
+                // console.log(data);
                 setHandleData(data[0])
                 if(data.length > 1){
                     localStorage.setItem('currUser', JSON.stringify(data[1]))

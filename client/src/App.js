@@ -178,7 +178,7 @@ export default function App() {
     const initialValue = JSON.parse(saved);
     setCurrUser(initialValue)}
 }
-console.log(signalForCurrUser);
+// console.log(signalForCurrUser);
 function signal(){
   setSignalForCurrUser(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true ) 
 }

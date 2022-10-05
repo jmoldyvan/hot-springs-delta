@@ -39,8 +39,8 @@ export default function Login (props) {
             if(localStorage.getItem('currUser')){
                 return setHandleData( {msg:'You Are Already Logged In'})
             }
-            console.log('post login acheived ');
-            console.log(formData);
+            // console.log('post login acheived ');
+            // console.log(formData);
                 let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/login', {
                 method: 'post', body: JSON.stringify(formData), //put your state from inputs/text area//),
                 headers: { 'Content-Type': 'application/json' }

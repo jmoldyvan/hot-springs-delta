@@ -17,12 +17,12 @@ export default function Navbar (props) {
         {searchHS: ""}
     )
 	
-console.log(props.allHotSpringData);
+// console.log(props.allHotSpringData);
 	const getLogOut = async () => {
 		if(!localStorage.getItem('currUser')){
 			return undefined
         }
-		console.log('post LogOut acheived ');
+		// console.log('post LogOut acheived ');
 			let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/logOut', {}).then((res) => res.json()))
 			let data = response
 		if(data.msg == 'ERROR'){
@@ -41,7 +41,7 @@ console.log(props.allHotSpringData);
 	  }
 	  function handleChange(event) {
         setFormData(prevFormData => {
-			console.log(formData)
+			// console.log(formData)
             return {
 				
                 ...prevFormData,
@@ -50,41 +50,29 @@ console.log(props.allHotSpringData);
         })}
 		function handleSubmit(event) {
 			event.preventDefault()
-			console.log(formData)
+			// console.log(formData)
 		}
 
 const handleOnSearch = (string, results) => {
-	console.log(string, results);
+	// console.log(string, results);
 	setSearchString(string);
   };
 const handleOnSelect = (string) => {
-	console.log(string.name);
+	// console.log(string.name);
 	setSearchString(string.name);
   };
 
-  const handleOnFocus = () => {
-	console.log("Focused");
-  };
 
-  const formatResult = (item) => {
-	console.log(item);
-	return (
-	  <div className="result-wrapper">
-		<span className="result-span">id: {item._id}</span>
-		<span className="result-span">name: {item.name}</span>
-	  </div>
-	);
-  };
 const navigate = useNavigate();
 function getIndHSPage(searchString){
-	console.log(allhotSpringDataForAutoComplete);
-	console.log(searchString);
+	// console.log(allhotSpringDataForAutoComplete);
+	// console.log(searchString);
 	if(!allhotSpringDataForAutoComplete.some(e => e.name == (searchString))){
 		alert(`Cannot Find ${searchString}`)
 	}
 	else{
 		let matchedHotSpring = allhotSpringDataForAutoComplete.filter((x) => x.name == searchString)
-		console.log(matchedHotSpring[0]._id);
+		// console.log(matchedHotSpring[0]._id);
 		navigate(`/sitedetail/${matchedHotSpring[0]._id}`, {replace: true})
 	}
 }

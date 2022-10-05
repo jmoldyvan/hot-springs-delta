@@ -18,7 +18,7 @@ export default function IndSpringDetail (props) {
             currentHotSpringSite = e
         }
     });
-    console.log(currentHotSpringSite);
+    // console.log(currentHotSpringSite);
 
 
 
@@ -89,7 +89,7 @@ export default function IndSpringDetail (props) {
 				}  
 			function doesUserIsLiked() {
 				if(currentHotSpringSite.usersWhoLiked.includes(props.currUser._id)){
-						console.log('it is icluded');
+						// console.log('it is icluded');
 						return setFav(prevContact => ({
 							...prevContact,
 							isFavorite: true

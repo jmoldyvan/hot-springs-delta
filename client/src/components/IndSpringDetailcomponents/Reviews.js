@@ -38,21 +38,21 @@ let navigate = useNavigate();
             
         function handleSubmit(event) {
             event.preventDefault()
-            console.log(formData)
+            // console.log(formData)
         }
     
         const placeReview = async () => {
-            console.log('post  acheived ');
-            console.log(formData);
+            // console.log('post  acheived ');
+            // console.log(formData);
                 let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/', {
                 method: 'post', body: JSON.stringify(formData), //put your state from inputs/text area//),
                 headers: { 'Content-Type': 'application/json' }
                 }).then((res) => res.json()))
-                console.log(response);
+                // console.log(response);
                 let data = response
-                console.log(data);
+                // console.log(data);
                 setHandleData(data[0])
-                console.log(handleData);
+                // console.log(handleData);
                 
             }
 
