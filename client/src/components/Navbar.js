@@ -100,11 +100,11 @@ React.useEffect(() => {
 							<li><a href={'https://jordan-moldovan.netlify.app/'}><i className="icon-male"></i></a></li>
 							</ul>
 							<div class="infophone">
-							<span ><Link className="signuploginNav2" to={'/Login'}>Login</Link></span>
-							<span className="signuploginNav"> |</span>
+							<span ><Link className="signuploginNavleft" to={'/Login'}>Login</Link></span>
+							{/* <span className="signuploginNav"> |</span> */}
 							<span ><Link className="signuploginNav2" to={'/Signup'}>Signup</Link></span>
-							<span className="signuploginNav"> |</span>
-							{isLoggedOut && !localStorage.getItem('currUser') ? <Navigate to="/profile1" /> : <span className="signuploginNav2" onClick={getLogOut} >LogOut</span>}
+							{/* <span className="signuploginNav"> |</span> */}
+							{isLoggedOut && !localStorage.getItem('currUser') ? <Navigate to="/profile1" /> : <span className="signuploginNavleft" onClick={getLogOut} >LogOut</span>}
 							</div>
 							
 						</div>

@@ -435,7 +435,7 @@ header {
 .row-nav {
 	margin-bottom:20px;
 	margin-top:20px;
-	background:#222;
+	background:#000;
 	max-height:50px;
 	 border-radius:5px;
 }
@@ -481,7 +481,7 @@ header {
 .navbar .nav {
 	margin:0;
 	 float:left;
-	 background:#222;
+	 background:#000;
 	 width:100%;
 }
 .navbar .nav li.dropdown.open>.dropdown-toggle,.navbar .nav li.dropdown.active>.dropdown-toggle,.navbar .nav li.dropdown.open.active>.dropdown-toggle {
@@ -545,7 +545,7 @@ ul {
 	padding:0;
 }
 #search input {
-	background:#222;
+	background:#000;
 	border:none;
 	-webkit-box-shadow:none;
 	-moz-box-shadow:none;
@@ -589,7 +589,7 @@ ul {
 }
 .dropdown-menu {
 	border:0px;
-	background-color:#222;
+	background-color:#000;
 	border-radius:0;
 	font-size:13px;
 }
@@ -1284,12 +1284,27 @@ a.prev span,a.next span {
 .signuploginNav2{
 	background:#000000ad;
 	color:rgb(255, 255, 255);
+	border-left: white solid 1px ;
+	border-right: white solid 1px ;
 	font-size:14px;
 	padding:6px;
+	padding-left:14px;
+	padding-right:14px;
 	margin-bottom:0;
 	cursor: pointer; 
 }
-.signuploginNav2:hover{
+.signuploginNavleft{
+	background:#000000ad;
+	color:rgb(255, 255, 255);
+	font-size:14px;
+	padding:6px;
+	padding-left:14px;
+	padding-right:14px;
+	margin-bottom:0;
+	cursor: pointer; 
+}
+
+.signuploginNav2:hover, .signuploginNavleft:hover{
 	color:rgb(255, 255, 255);
 	background:#e7402f
 }
