@@ -1272,6 +1272,15 @@ a.prev span,a.next span {
 	margin-top:8px;
 	text-align:center;
 }
+
+.loginformstyle{
+	display: flex;
+	flex-flow: column;
+}
+.loginbox{
+	background-color: rgb(233, 233, 233);
+}
+
 .signuploginNav{
 	background:#000000ad;
 	color:#fff;
@@ -2119,12 +2128,29 @@ margin:15px 0 -15px;
 .comment-content,.reply {
 margin-left:58px;
 }
+
+.loginformstyle input{
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+.loginpagebtn{
+	box-shadow:  5px 5px 5px rgb(0, 0, 0);
+	color: white;
+}
+.whiteplease{
+	color: white;
+}
+.whiteplease:hover{
+	color: white;
+}
+
 .boxblog {
 border:1px solid #eee;
 margin-bottom:20px;
 min-height:290px;
 position:relative;
-padding:5px 10px;
+padding:25px 30px;
 word-wrap:break-word;
 box-shadow:10px 10px 15px 0 rgba(0,0,0,0.4);
 }

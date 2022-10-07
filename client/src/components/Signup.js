@@ -76,35 +76,37 @@ React.useEffect(() => {
 return(
     <div>
         <Navbar allHotSpringData ={props.allHotSpringData} currUser={props.currUser}/>
-        <div className="mt-5">
-        { handleData == 'Fill In All Fields To Create Account' ? <h2>{'Fill In All Fields To Create Account'}</h2> : <h2>{`${handleData.msg}`}</h2>}
-        </div>
-        <div className="mt-5">
-            <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        placeholder="userName"
-                        onChange={handleChange}
-                        name="userName"
-                        value={formData.userName}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Password"
-                        onChange={handleChange}
-                        name="password"
-                        value={formData.password}
-                    />
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        onChange={handleChange}
-                        name="email"
-                        value={formData.email}
-                    />
-                    <button onClick={()=> {props.signal(); getSignup()}} >Signup</button>
-            </form>
-                    <button><Link to={'/login'}>Already Have An Account?</Link></button>  
+        <div className=" container mt-5">
+            <div className="loginbox col-md-8 col-md-offset-2 boxblog">
+                { handleData == 'Fill In All Fields To Create Account' ? <h2 className="col-md-offset-1">{'Fill In All Fields To Create Account'}</h2> : <h2 className="col-md-offset-5">{`${handleData.msg}`}</h2>}
+                <div className="mt-5">
+                    <form className="loginformstyle" onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                placeholder="userName"
+                                onChange={handleChange}
+                                name="userName"
+                                value={formData.userName}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Password"
+                                onChange={handleChange}
+                                name="password"
+                                value={formData.password}
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                onChange={handleChange}
+                                name="email"
+                                value={formData.email}
+                            />
+                            <button className="loginpagebtn mt-3 btn btn-primary btn-large col-md-5 col-md-offset-3 col-sm-4" onClick={()=> {props.signal(); getSignup()}} >Signup</button>
+                            <button className="loginpagebtn mt-3 btn btn-primary btn-large col-md-5 col-md-offset-3 col-sm-4"><Link className="whiteplease" to={'/login'}>Have An Account?</Link></button>  
+                    </form>        
+                </div>
+            </div>
         </div>
         <Footer/>
     </div>

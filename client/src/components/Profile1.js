@@ -16,7 +16,7 @@ export default function Profile1 (props) {
 		<div className="row">
 			<div className="col-md-8 span-fixed-sidebar">
 				<div className="hero-unit">
-					<h1>Welcome, </h1>
+					<h1>Log In or Sign Up To Access Profile</h1>
 					
 					<p>
 						<img src="https://res.cloudinary.com/djp4vd3uw/image/upload/v1663206333/hot-spring-imgs/agua-caliente/AguaCaliente1_cum4pe.jpg" className="pull-left paddingright" alt="" style={style}/> 
@@ -33,7 +33,7 @@ export default function Profile1 (props) {
 							</p>
 							<div className="innerblogboxtwo">
 								<p>
-									<img width="150" height="150" src="img/demo/300x200.png" className="attachment-thumbnail" alt=""/> 
+									<img width="150" height="150" src="https://res.cloudinary.com/djp4vd3uw/image/upload/v1664342881/hot-spring-imgs/Cougar%20Hot%20Springs%20Terwilliger%20Hot%20Springs/Terwilliger_Hot_Springs_2016-04-04_jmm79i.jpg" className="attachment-thumbnail" alt=""/> 
 									Your Review Description
 								</p>
 							</div>
@@ -47,7 +47,7 @@ export default function Profile1 (props) {
 			
 			<div className=" col-md-4">
 				<ul id="myTab" className="nav nav-tabs">
-					<li className="active"><a href="#home" data-toggle="tab">Your Reviews</a></li>
+					<li className="active"><a href="#home" data-toggle="tab">Your Saved Locations</a></li>
 				</ul>
 				<div id="myTabContent" className="tab-content multi-sidebar">
 					<div className="tab-pane fade active in" id="home">
