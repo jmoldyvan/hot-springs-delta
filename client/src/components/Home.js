@@ -65,7 +65,7 @@ export default function Home (props) {
 			
 		
 			<div className="row graysection">
-				<div className="col-md-3">
+				<div className="col-md-4 my-4">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
 							<i className="fontawesome-icon medium circle-white center icon-user"></i>
@@ -75,36 +75,35 @@ export default function Home (props) {
 							Create an account to leave reviews and like hot spring locations. Track your liked hot springs for on your profile page!
 						</p>
 						<p>
-							<Link to={'/Signup'} className="btn btn-primary btn-large"> Signup → </Link></p>
-							<p><Link to={'/Login'} className="btn btn-primary btn-large"> Login → </Link></p>
-						
+							<Link to={'/Signup'} className="btn btn-primary btn-large me-5"> Signup → </Link>
+							<Link to={'/Login'} className="btn btn-primary btn-large"> Login → </Link></p>
 					</div>
 				</div>
-				<div className="col-md-3">
+				<div className="col-md-4 my-4">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
 							<i className="fontawesome-icon medium circle-white center icon-compass"></i>
 						</div>
 						<h4>View Map</h4>
 						<p>
-							Check out the interactive map with all of the West Coast Hot Springs and information.
+							Check out the interactive map with all of the West Coast Hot Springs and information. Find your city and plan a trip!
 						</p>
 						<p>
 						<p><Link to={'/Login'} className="btn btn-primary btn-large"> Map → </Link></p>
 						</p>
 					</div>
 				</div>
-				<div className="col-md-3">
+				<div className="col-md-4 my-4">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
 							<i className="fontawesome-icon medium circle-white center icon-envelope"></i>
 						</div>
 						<h4>Contact</h4>
 						<p>
-							Send over any new hot spring reccomendations or updates on any information!
+							Send over new hot spring reccomendations or updates on any information. A real human is on the other end.
 						</p>
 						<p>
-						<p><Link to={'/Login'} className="btn btn-primary btn-large"> Contact → </Link></p>
+						<p><Link to={'/contact'} className="btn btn-primary btn-large"> Contact → </Link></p>
 						</p>
 					</div>
 				</div>

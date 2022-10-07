@@ -77,7 +77,19 @@ return(
     <div>
         <Navbar allHotSpringData ={props.allHotSpringData} currUser={props.currUser}/>
         <div className=" container mt-5">
-            <div className="loginbox col-md-8 col-md-offset-2 boxblog">
+
+        <div className="container ">
+                <div className=" col-md-12 ">
+                    <div className="titleborder">
+                        <div>
+                            Sign Up
+                        </div>
+                    </div>
+                    {/* <div className="titleborder"></div> */}
+                </div>
+		  </div>
+            
+            <div className="loginbox mt-5 col-md-8 col-md-offset-2 boxblog">
                 { handleData == 'Fill In All Fields To Create Account' ? <h2 className="col-md-offset-1">{'Fill In All Fields To Create Account'}</h2> : <h2 className="col-md-offset-5">{`${handleData.msg}`}</h2>}
                 <div className="mt-5">
                     <form className="loginformstyle" onSubmit={handleSubmit}>
@@ -102,8 +114,8 @@ return(
                                 name="email"
                                 value={formData.email}
                             />
-                            <button className="loginpagebtn mt-3 btn btn-primary btn-large col-md-5 col-md-offset-3 col-sm-4" onClick={()=> {props.signal(); getSignup()}} >Signup</button>
-                            <button className="loginpagebtn mt-3 btn btn-primary btn-large col-md-5 col-md-offset-3 col-sm-4"><Link className="whiteplease" to={'/login'}>Have An Account?</Link></button>  
+                            <button className="loginpagebtn mt-3 btn btn-primary btn-large col-md-5 col-md-offset-3 col-sm-12" onClick={()=> {props.signal(); getSignup()}} >Signup</button>
+                            <button className="loginpagebtn mt-3 btn btn-primary btn-large col-md-5 col-md-offset-3 col-sm-12"><Link className="whiteplease" to={'/login'}>Login</Link></button>  
                     </form>        
                 </div>
             </div>

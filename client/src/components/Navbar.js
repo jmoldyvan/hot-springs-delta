@@ -116,7 +116,7 @@ React.useEffect(() => {
 										<li className="menu-item"><Link className="signuploginNav3" to ='/gallery'>Gallery</Link></li><br></br><br></br>
 										<li className="menu-item"><Link className="signuploginNav3" to={'#'}>Map</Link></li><br></br><br></br>
 										<li className="menu-item">{props.currUser===null || props.currUser==undefined || !localStorage.getItem('currUser') ? <Link className="signuploginNav3" to={`/profile1`}>Profile</Link> : <Link className="signuploginNav3" to={`/profile/${props.currUser._id}`}>Profile</Link> }</li>
-										<br></br><br></br><li className="menu-item"><Link className="signuploginNav3" to={'#'}>Contact</Link></li>
+										<br></br><br></br><li className="menu-item"><Link className="signuploginNav3" to={'/contact'}>Contact</Link></li>
 									</ul><br></br><br></br><br></br>
 
 									<form onSubmit={handleSubmit} id="search" action="#" method="GET">	

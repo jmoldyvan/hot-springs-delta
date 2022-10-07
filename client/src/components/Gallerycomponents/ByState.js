@@ -36,11 +36,11 @@ export default function ByState (props) {
             <div className="menu-tabs container-fluid mt-5  ">
 
                 <div className="menu-tab d-flex justify-content-around flex-wrap col  mt-1">
-                    <button className=" btn-primary btn-warning " onClick={() => filterItem('CA')}>California</button>
-                    <button  className="btn-primary btn-warning " onClick={() => filterItem('NV')}>Nevada</button>
-                    <button className="btn-primary btn-warning " onClick={() => filterItem('OR')}>Oregon</button>
-                    <button className="btn-primary btn-warning " onClick={() => filterItem('WA')}>Washington</button>
-                    <button className="btn-primary btn-warning " onClick={() => setItems(props.allHotSpringData)}>All</button>
+                    <button className="loginpagebtn btn-primary btn-warning " onClick={() => filterItem('CA')}>California</button>
+                    <button  className="loginpagebtn btn-primary btn-warning " onClick={() => filterItem('NV')}>Nevada</button>
+                    <button className="loginpagebtn btn-primary btn-warning " onClick={() => filterItem('OR')}>Oregon</button>
+                    <button className="loginpagebtn btn-primary btn-warning " onClick={() => filterItem('WA')}>Washington</button>
+                    <button className="loginpagebtn btn-primary btn-warning " onClick={() => setItems(props.allHotSpringData)}>All</button>
                 </div>
 
             </div>

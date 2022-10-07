@@ -322,7 +322,7 @@ h1.small {
 	font-size:27.5px;
 }
 .graysection .lead {
-	color:#444;
+	color:#000;
 }
 .page-header {
 	margin:0px;
@@ -457,7 +457,7 @@ header {
 	transition:all 0.3s ease;
 }
 .navbar .divider-vertical {
-	border-left:1px solid #444;
+	border-left:1px solid #000;
 	border-right:1px solid #000;
 	margin:0;
 	height:50px;
@@ -763,7 +763,7 @@ ul.footermenu li a:hover,.footer a:hover {
 		color:#fff;
 		line-height:2.0;
 		background:#333;
-	border-top:1px solid #444;
+	border-top:1px solid #000;
 }
 .footerbottom a {
 	color:#fff;
@@ -975,7 +975,7 @@ ul.footermenu li a {
 	-moz-border-radius:75px;
 	-webkit-border-radius:75px;
 	border-radius:75px;
-	background-color:#444;
+	background-color:#000;
 	color:#fff;
 	text-align:center;
 	margin-bottom:5px;
@@ -1040,7 +1040,7 @@ a.prev,a.next {
 	box-shadow:inset 0 -1px 0 0 rgba(0,0,0,0.1);
 }
 a.prev:hover,a.next:hover {
-	background-color:#444;
+	background-color:#000;
 }
 a.prev {
 	background-position:-2px 0
@@ -1149,7 +1149,7 @@ a.prev span,a.next span {
 	position:relative;
 }
 .titleborder div {
-	color:#444;
+	color:#000;
 	font-size:24px;
 	top:14px;
 	padding-left:0 !important;
@@ -1181,7 +1181,7 @@ a.prev span,a.next span {
 .thumbnail .caption {
 	color:#888;
 	padding:10px 20px 15px;
-	background:#f7f7f7;
+	background:#f0f0f0;
 }
 .thumbnail .caption span {
 }
@@ -1213,7 +1213,7 @@ a.prev span,a.next span {
 	background-color:#e7402f;
 }
 .btn-primary:hover {
-	background-color: #444;
+	background-color: #000;
 }
 /* =========================================================== */
 /* Accordion/* ============================================================== */
@@ -1241,7 +1241,7 @@ a.prev span,a.next span {
 	text-transform:uppercase;
 }
 .accordion h3.active,.toggle h3.active,.accordion h3:hover,.toggle h3:hover {
-	background:#444;
+	background:#000;
 	color:#eee;
 }
 .accordion h3.active span,.toggle h3.active span {
@@ -1343,7 +1343,7 @@ article .day {
 	-moz-box-shadow:0 -1px 0 0 rgba(0,0,0,0.07) inset;
 	-webkit-border-radius:0 0 2px 2px;
 	-webkit-box-shadow:0 -1px 0 0 rgba(0,0,0,0.07) inset;
-	background:#444;
+	background:#000;
 	border-radius:0 0 2px 2px;
 	box-shadow:0 -1px 0 0 rgba(0,0,0,0.07) inset;
 	color:#FFFFFF;
@@ -1399,7 +1399,7 @@ ul#skill {
 	width:100%;
 }
 .progressdefault {
-	background-color:#444;
+	background-color:#000;
 }
 .progresspink {
 	background-color:#f674a4
@@ -1434,8 +1434,8 @@ ul#skill {
 	margin-bottom:10px;
 }
 .pagination>.active>a,.pagination>.active>a:focus,.pagination>.active>a:hover,.pagination>.active>span,.pagination>.active>span:focus,.pagination>.active>span:hover {
-	background-color:#444;
-	border-color:#444;
+	background-color:#000;
+	border-color:#000;
 }
 .pagination>li>a,.pagination>li>span {
 	color: #333;
@@ -1443,7 +1443,7 @@ ul#skill {
 /* =========================================================== */
 /* Box Shadow Effects /* ============================================================== */
 .box {
-	background:#f7f7f7;
+	background:#f0f0f0;
 	padding: 22px;
 }
 /*================================================== * Effect 1 * ===============================================*/
@@ -1748,7 +1748,7 @@ color:#fff;
 color:#e7402f;
 }
 .service-box.black:hover .circleicon i {
-color: #444;
+color: #000;
 }
 /*================================================== * Flexslider* ===============================================*/
 /* * jQuery FlexSlider v2.0 * http://www.woothemes.com/flexslider/
@@ -1945,7 +1945,7 @@ list-style:square;
 }
 .panel,.panel1 {
 padding:20px;
-background-color:#f7f7f7;
+background-color:#f0f0f0;
 border-left:8px solid #e7402f;
 position:relative;
 margin-bottom:15px;
@@ -2073,7 +2073,7 @@ font-size:15px;
 padding-bottom:20px;
 line-height:0;
 padding-top:20px;
-background:#f7f7f7;
+background:#f0f0f0;
 padding-left:20px;
 padding-right:20px;
 margin-bottom:-18px;
@@ -2129,14 +2129,30 @@ margin:15px 0 -15px;
 margin-left:58px;
 }
 
+.menu-tabs{
+	background-color: rgb(236, 236, 236);
+	padding: 20px 0;
+}
+
 .loginformstyle input{
 	border: 1px solid #000;
 	border-radius: 5px;
+}
+.contactformstyle input, .contactformstyle textarea{
+	border: 1px solid #000;
+	border-radius: 5px;
+	width: 100%
 }
 
 .loginpagebtn{
 	box-shadow:  5px 5px 5px rgb(0, 0, 0);
 	color: white;
+}
+.contactpagebtn{
+	box-shadow:  5px 5px 5px rgb(0, 0, 0);
+	color: white;
+	font-size: 1.8rem;
+	margin: 5px;
 }
 .whiteplease{
 	color: white;
@@ -2517,10 +2533,10 @@ padding:5px 0
 font-size:16px;
 margin:0;
 padding:10px;
-color:#444;
+color:#000;
 }
 #authorbox h4 a {
-color:#444;
+color:#000;
 text-transform:uppercase;
 }
 .authortext {
