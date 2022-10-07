@@ -57,7 +57,7 @@ export default function Contact (props) {
                 <h3 htmlFor="message">Message:</h3>
                 <textarea id="message" required />
               </div>
-                <button className="contactpagebtn mt-3 btn-primary btn-large " type="submit">{status}</button>
+                <button className="contactpagebtn mt-3 btn-primary btn-large col-sm-12 col-12" type="submit">{status}</button>
             </form>
         </div>
 
