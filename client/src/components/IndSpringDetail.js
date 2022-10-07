@@ -86,6 +86,7 @@ export default function IndSpringDetail (props) {
 					headers: { 'Content-Type': 'application/json' }
 					}).then((res) => res.json()))
 					let data = response
+					setHandleData(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true )
 				}  
 			function doesUserIsLiked() {
 				if(currentHotSpringSite.usersWhoLiked.includes(props.currUser._id)){
@@ -123,7 +124,7 @@ export default function IndSpringDetail (props) {
 				</div>
 			</div>
 			<div className="row">
-			<h1 style={styles} ><img src={starIcon} onClick={()=> {likeHotSpring(); toggleFavorite(); window.location.reload()}}/>
+			<h1 style={styles} ><img src={starIcon} onClick={()=> {likeHotSpring(); toggleFavorite()}}/>
 			{currentHotSpringSite.likes}</h1>
 				<div className="col-md-6">
 					<p>

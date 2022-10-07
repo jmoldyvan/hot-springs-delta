@@ -47,30 +47,30 @@ export default function App() {
       userName: '',
     })
 
-    function getLongAndLat() {
-      return new Promise((resolve, reject) =>
-          navigator.geolocation.getCurrentPosition(resolve, reject)
-      )}
-    async function currLatLng() {
-      let pos = await getLongAndLat();
-      let latLng = {  }
-      latLng.lng = pos.coords.longitude;
-      latLng.lat = pos.coords.latitude;
-      setUserLatLng(latLng)
-      return latLng
-    }
-    const getFive = async () => {
-      let latLng = await currLatLng()
-      try{let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/findNearest', {
-        method: 'post', body: JSON.stringify(latLng),
-        headers: { 'Content-Type': 'application/json' }
-      }).then((res) => res.json()))
-      let data = response
-      setFiveCloseHS([data[0], data[1], data[2], data[3], data[4]])
-    } catch (error) {
-        console.log(error);
-    }
-  }
+    // function getLongAndLat() {
+    //   return new Promise((resolve, reject) =>
+    //       navigator.geolocation.getCurrentPosition(resolve, reject)
+    //   )}
+    // async function currLatLng() {
+    //   let pos = await getLongAndLat();
+    //   let latLng = {  }
+    //   latLng.lng = pos.coords.longitude;
+    //   latLng.lat = pos.coords.latitude;
+    //   setUserLatLng(latLng)
+    //   return latLng
+    // }
+  //   const getFive = async () => {
+  //     let latLng = await currLatLng()
+  //     try{let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/findNearest', {
+  //       method: 'post', body: JSON.stringify(latLng),
+  //       headers: { 'Content-Type': 'application/json' }
+  //     }).then((res) => res.json()))
+  //     let data = response
+  //     setFiveCloseHS([data[0], data[1], data[2], data[3], data[4]])
+  //   } catch (error) {
+  //       console.log(error);
+  //   }
+  // }
 
     const fetchHotSpring = async () => {
       try{
