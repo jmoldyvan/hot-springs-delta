@@ -146,7 +146,7 @@ export default function IndSpringDetail (props) {
 				<SpringCarousel currentHotSpringSite={currentHotSpringSite}/>
 
 		</div>
-		<div className="likeContainer mt-5"><h6 style={styles}> <img src={starIcon} 
+		<div className="likeContainer mt-5"><h6 className=" mt-1" style={styles}> <img src={starIcon} 
 			onClick={()=> {likeHotSpring(); toggleFavorite()}}/></h6></div>
 		<div className="likeContainer">
 			<h6>
