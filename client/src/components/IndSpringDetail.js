@@ -121,7 +121,7 @@ export default function IndSpringDetail (props) {
 				</div>
 				
 				<h1 className="col-md-offset-4">{currentHotSpringSite.name}</h1>
-				<div className="headerdivider mt-5">
+				<div className="headerdivider">
 				</div>
 			</div>
 
