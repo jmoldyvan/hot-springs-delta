@@ -90,7 +90,7 @@ return(
 		  </div>
             
             <div className="loginbox mt-5 col-md-8 col-md-offset-2 boxblog">
-                { handleData == 'Fill In All Fields To Create Account' ? <h2 className="col-md-offset-1">{'Fill In All Fields To Create Account'}</h2> : <h2 className="col-md-offset-5">{`${handleData.msg}`}</h2>}
+                { handleData == 'Fill In All Fields To Create Account' ? <h2 className="col-md-offset-1">{'Fill In All Fields To Create Account'}</h2> : <h2 className="">{`${handleData.msg}`}</h2>}
                 <div className="mt-5">
                     <form className="loginformstyle" onSubmit={handleSubmit}>
                             <input

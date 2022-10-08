@@ -114,56 +114,55 @@ export default function IndSpringDetail (props) {
         
 <div>
         <Navbar allHotSpringData ={props.allHotSpringData} currUser={props.currUser}/>
-    <div className="container">
-		<div className="page-header">
-			<div className="headerdivider">
+    <div className="container ">
+		
+		<div className="page-header mt-5">
+			<div className="headerdivider my-5">
 				</div>
 				
-				<h1>{currentHotSpringSite.name}</h1>
-				<div className="headerdivider">
+				<h1 className="col-md-offset-4">{currentHotSpringSite.name}</h1>
+				<div className="headerdivider mt-5">
 				</div>
 			</div>
-			<div className="row">
-			<h1 style={styles} ><img src={starIcon} onClick={()=> {likeHotSpring(); toggleFavorite()}}/>
-			{currentHotSpringSite.likes}</h1>
-				<div className="col-md-6">
+
+			<div className="row mt-5">
+
+				<div className="col-md-6 mt-3">
+					
 					<p>
 						<b>State</b> : {currentHotSpringSite.state} | <b>Area</b> : {currentHotSpringSite.area} | <b>Day Use Fee</b> : {currentHotSpringSite.dayUseFee}<br/>
 						<b>Resort</b> : {currentHotSpringSite.resort} | <b>Open Season</b> : {currentHotSpringSite.open}
 					</p>
+					
 					<p>
 					{currentHotSpringSite.description}
 					</p>
+
 						<AccordionInfo currentHotSpringSite={currentHotSpringSite}/>    
 					<br/>
-
+			
 				</div>
-				<SpringCarousel currentHotSpringSite={currentHotSpringSite}/>
 				
+				<SpringCarousel currentHotSpringSite={currentHotSpringSite}/>
+
 		</div>
+		<div className="likeContainer mt-5"><h6 style={styles}> <img src={starIcon} 
+			onClick={()=> {likeHotSpring(); toggleFavorite()}}/></h6></div>
+		<div className="likeContainer">
+			<h6>
+			Click This Heart To Save This Hot Spring</h6>
+			</div>
+		<div className="likeContainer">
+			<h6>
+			To Your Profile Liked List For Later</h6>
+			</div>
+			<div className="likeContainer ">
+			<h6 className="my-5">{currentHotSpringSite.likes} People Have Liked {currentHotSpringSite.name}</h6>
+				</div>
 		
 
-		{!(localStorage.getItem('currUser')) ? <h1>You Must Be Logged In To Leave A Review</h1> :
-		<form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Title"
-                        onChange={handleChange}
-                        name="title"
-                        value={formData.title}
-                    />
-                    <textarea
-                        placeholder="Leave Review Here"
-                        onChange={handleChange}
-                        name="review"
-                        value={formData.review}
-                    />
-                    <button onClick={()=> {props.signal(); postReview()}}  >Submit Review</button>
-            </form>
-			}
-
-
-	</div>
+	
+	<div className="container2 col-md-offset-2 my-5">
 		{ allHotSpringReviews.length < 1 || allHotSpringReviews==undefined ? <div></div>:
 		<div id="content" class="top30">
 			{
@@ -187,6 +186,31 @@ export default function IndSpringDetail (props) {
 				})
 			}
 		</div>}
+		
+	</div>
+	<div className=" loginbox boxblog col-md-offset-2 col-md-8 col-sm-12 my-5">
+			{!(localStorage.getItem('currUser')) ? <h1 className="my-5">You Must Be Logged In To Leave A Review</h1> :
+			<form className="loginformstyle col-md-offset-3 col-sm-offset-3 col-md-6 col-sm-12" onSubmit={handleSubmit}>
+						<input
+							type="text"
+							placeholder="Title"
+							onChange={handleChange}
+							name="title"
+							value={formData.title}
+						/>
+						<textarea
+							placeholder="Leave Review Here"
+							onChange={handleChange}
+							name="review"
+							value={formData.review}
+						/>
+						<button className="loginpagebtn mt-3 btn btn-primary btn-large col-md-8 col-md-offset-2 col-sm-12" onClick={()=> {props.signal(); postReview()}}  >Submit Review</button>
+				</form>
+			}
+		</div>
+</div>
+	
+		
         <Footer/>
 </div>
 )}
