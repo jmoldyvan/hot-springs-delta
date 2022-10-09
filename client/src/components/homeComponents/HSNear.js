@@ -1,18 +1,23 @@
 
 import React from "react";
-import { 
-	// BrowserRouter, 
-	// Route, Routes, 
-	Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export default function HSNear (props) {
 
+	// const [sorted, setSorted] = React.useState([props.allHotSpringData]);
+	// console.log(sorted);
+	// function makeItSort() {
+	// 	setSorted( prevValue => {
+	// 		// return {...prevValue, sorted.sort((a,b) => b.likes-a.likes)}
+	// 	} )
+	// }
+	
+	// console.log(sorted);
 
-	let sorted = props.allHotSpringData.sort((a,b) => b.likes-a.likes)
-	console.log(sorted);
-
-
+	// React.useEffect(() => {
+	// 	makeItSort()
+	// 	},[]);
 
     return(
 <div>
@@ -27,7 +32,7 @@ export default function HSNear (props) {
 		</div>
 
 		<div className="row recent-posts">
-		{props.allHotSpringData.splice(0,4).map((elem) => {
+		{props.allHotSpringData.sort((a,b) => b.likes-a.likes).slice(0,4).map((elem) => {
 					const { name, likes, description, image, _id } = elem;
 					return ( 
 						
