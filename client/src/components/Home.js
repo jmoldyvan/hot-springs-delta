@@ -1,6 +1,6 @@
 import React from "react";
 import MainCarousel from "./homeComponents/MainCarousel"
-// import HSNear from "./homeComponents/HSNear"
+import HSNear from "./homeComponents/HSNear"
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import {Link} from "react-router-dom"
@@ -57,10 +57,9 @@ export default function Home (props) {
 						<div>
 						</div>
 					</div>
-			{/* {props.fiveCloseHS !== undefined ? 
-			<HSNear fiveCloseHS = {props.fiveCloseHS}/> :
-				<div></div>
-			} */}
+			
+			<HSNear allHotSpringData ={props.allHotSpringData}/> 
+			
 			
 			
 		

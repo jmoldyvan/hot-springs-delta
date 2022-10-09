@@ -7,24 +7,53 @@ import {
 
 
 export default function HSNear (props) {
+
+
+	let sorted = props.allHotSpringData.sort((a,b) => b.likes-a.likes)
+	console.log(sorted);
+
+
+
     return(
 <div>
         <div className="row">
 			<div className="col-md-12">
 				<div className="titleborder">
 					<div>
-						 Closest Hot Springs To You
+						 Top Liked Hot Springs!
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<div className="row recent-posts">
+		{props.allHotSpringData.splice(0,4).map((elem) => {
+					const { name, likes, description, image, _id } = elem;
+					return ( 
+						
+					<div className="col-md-3">
+						<article>
+						<Link to={`/sitedetail/${_id}`}><img src={image} alt="" className="imgOpa"/></Link>
+						<div className="date">
+							<span className="day">{name.split(' ').map((item) => item[0]).join('')}</span>
+						</div>
+						<h4><Link to={`/sitedetail/${_id}`}>{name}</Link></h4>
+						<p>
+						{description.split('.')[0].length<12 ? `${description.split('.')[0]} ${description.split('.')[1]}` : description.split('.')[0]}				</p>
+						</article>
+					</div>
+				
+					)
+				})
+			}
+		</div>
+
+		{/* <div className="row recent-posts">
 			<div className="col-md-3">
 				<article>
 				<Link to={`/sitedetail/${props.fiveCloseHS[0]._id}`}><img src={props.fiveCloseHS[0].image} alt="" className="imgOpa"/></Link>
 				<div className="date">
 					<span className="day">{props.fiveCloseHS[0].name.split(' ').map((item) => item[0]).join('')}</span>
-					{/* <span className="month">Jan</span> */}
 				</div>
 				<h4><Link to={`/sitedetail/${props.fiveCloseHS[0]._id}`}>{props.fiveCloseHS[0].name}</Link></h4>
 				<p>
@@ -36,7 +65,6 @@ export default function HSNear (props) {
 				<Link to={`/sitedetail/${props.fiveCloseHS[1]._id}`}><img src={props.fiveCloseHS[1].image} alt="" className="imgOpa"/></Link>
 				<div className="date">
 					<span className="day">{props.fiveCloseHS[1].name.split(' ').map((item) => item[0]).join('')}</span>
-					{/* <span className="month">Jan</span> */}
 				</div>
 				<h4><Link to={`/sitedetail/${props.fiveCloseHS[1]._id}`}>{props.fiveCloseHS[1].name}</Link></h4>
 				<p>
@@ -48,7 +76,6 @@ export default function HSNear (props) {
 				<Link to={`/sitedetail/${props.fiveCloseHS[2]._id}`}><img src={props.fiveCloseHS[2].image} alt="" className="imgOpa"/></Link>
 				<div className="date">
 					<span className="day">{props.fiveCloseHS[2].name.split(' ').map((item) => item[0]).join('')}</span>
-					{/* <span className="month">Jan</span> */}
 				</div>
 				<h4><Link to={`/sitedetail/${props.fiveCloseHS[2]._id}`}>{props.fiveCloseHS[2].name}</Link></h4>
 				<p>
@@ -60,13 +87,12 @@ export default function HSNear (props) {
 				<Link to={`/sitedetail/${props.fiveCloseHS[3]._id}`}><img src={props.fiveCloseHS[3].image} alt="" className="imgOpa"/></Link>
 				<div className="date">
 					<span className="day">{props.fiveCloseHS[3].name.split(' ').map((item) => item[0]).join('')}</span>
-					{/* <span className="month">Jan</span> */}
 				</div>
 				<h4><Link to={`/sitedetail/${props.fiveCloseHS[3]._id}`}>{props.fiveCloseHS[3].name}</Link></h4>
 				<p>
                 {props.fiveCloseHS[3].description.split('.')[0].length<12 ? `${props.fiveCloseHS[3].description.split('.')[0]} ${props.fiveCloseHS[3].description.split('.')[1]}` : props.fiveCloseHS[3].description.split('.')[0]}				</p>
 				</article>
 			</div>
-		</div>
+		</div> */}
         </div>
 )}

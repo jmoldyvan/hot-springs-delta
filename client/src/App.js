@@ -183,7 +183,8 @@ export default function App() {
 function signal(){
   setSignalForCurrUser(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true ) 
 }
- 
+let sorted = allHotSpringData.sort((a,b) => b.likes-a.likes)
+console.log(sorted);
 
   return (
     <body className="boxed">
