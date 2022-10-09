@@ -87,17 +87,17 @@ React.useEffect(() => {
 			<div className="container clearfix">
 				<div className="row">
 					<div className="col-md-12">
-						<h1 className="brandlogo">
-								<p className="footerlogo">
+						<h1 className="brandlogo col-md-offset-4">
+								<p className="footerlogo ">
 								West Coast Hot Springs
 								</p>
 							</h1>
-						<div className="topinfo">
+						<div className="">
 							<ul className="social-icons list-soc">
-							<li><a href='https://twitter.com/JordanMoldovan'><i className="icon-twitter"></i></a></li>
+							{/* <li><a href='https://twitter.com/JordanMoldovan'><i className="icon-twitter"></i></a></li>
 							<li><a href='https://www.linkedin.com/in/jordan-moldovan/'><i className="icon-linkedin"></i></a></li>
 							<li><a href='https://github.com/jmoldyvan'><i class="icon-github"></i></a></li>
-							<li><a href={'https://jordan-moldovan.netlify.app/'}><i className="icon-male"></i></a></li>
+							<li><a href={'https://jordan-moldovan.netlify.app/'}><i className="icon-male"></i></a></li> */}
 							</ul>
 							<div class="infophone">
 							<span ><Link className="signuploginNavleft" to={'/Login'}>Login</Link></span>

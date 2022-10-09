@@ -12,7 +12,14 @@ export default function Footer () {
 		<div className="container">
 			<div className="row">
 				<div className="col-md-4">
-					<h1 className="title"><i className="icon-heart"></i></h1>
+				{/* <div className="topinfo"> */}
+							<ul className="social-icons list-soc">
+							<li><a href='https://twitter.com/JordanMoldovan'><i className="icon-twitter"></i></a></li>
+							<li><a href='https://www.linkedin.com/in/jordan-moldovan/'><i className="icon-linkedin"></i></a></li>
+							<li><a href='https://github.com/jmoldyvan'><i class="icon-github"></i></a></li>
+							<li><a href={'https://jordan-moldovan.netlify.app/'}><i className="icon-male"></i></a></li>
+							</ul>
+							{/* </div> */}
 					<p>
 						 This site was built, designed, and is maintained by a single developer.
 					</p>

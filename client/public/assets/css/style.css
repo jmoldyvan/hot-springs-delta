@@ -520,6 +520,7 @@ header {
 	overflow:hidden;
 	margin-bottom:10px;
 	margin-top:25px;
+	padding-left:0px
 }
 .list-soc li {
 	float:right;
@@ -3603,6 +3604,18 @@ body.boxed div.body {
 }
 }
 @media (max-width:800px) {
+
+	.infophone,.infoaddress {
+	text-align:left;
+	font-size:11px;
+	width: 50%;
+}
+
+.brandlogo {
+	float:none;
+	margin-top:20px;
+}
+
 body.boxed div.body {
 	margin-bottom:0px;
 }
@@ -3676,7 +3689,7 @@ body.boxed div.body {
 }
 .brandlogo {
 	float:none;
-	margin-top:20px;
+	margin-top:60px;
 }
 .topinfo,.infophone,.infoaddress {
 	text-align:left;
