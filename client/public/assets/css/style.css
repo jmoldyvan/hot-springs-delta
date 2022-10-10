@@ -174,6 +174,7 @@ body.boxed div.body {
 	color: rgb(255, 255, 255);
 	padding: 10px 30px;
 	margin-top: 2px;
+	margin-left: 1em;
 	font-size: 18px;
 	height: 50px;
 }
@@ -183,7 +184,7 @@ body.boxed div.body {
 }
 .autocompletediv2{
 	margin: 0;
-	padding-left: 2em;
+	padding-left: 1em;
 }
 
 /* Position and sizing of burger button */
@@ -233,8 +234,12 @@ body.boxed div.body {
   /* General sidebar styles */
   .bm-menu {
 	background: #373a47;
-	padding: 2.5em 1.5em 0;
+	padding: 2em 0;
 	font-size: 1.15em;
+  }
+
+  .main-title h1{
+	margin: 0;
   }
   
   /* Morph shape necessary with bubble or elastic */
@@ -245,7 +250,7 @@ body.boxed div.body {
   /* Wrapper for item list */
   .bm-item-list {
 	color: #b8b7ad;
-	padding: 1em;
+	/* padding: 1em; */
 	display: flex;
 	flex-flow: column;
 	align-items: flex-start;
@@ -269,6 +274,7 @@ img {
 	display: flex;
 	justify-content: center;
 	background-color: #f3f3f3;
+	text-align: center;
 }
 
 a {
@@ -816,6 +822,11 @@ ul.footermenu li a {
 	margin-top:65px;
 	line-height:1.6;
 }
+
+#homesignupbutton {
+	margin-right: 20px;
+	}
+
 .footerdark .footerlogo {
 	color:#fff;
 }
@@ -2165,6 +2176,10 @@ margin-left:58px;
 	box-shadow:  5px 5px 5px rgb(0, 0, 0);
 	color: white;
 }
+.gallerypagebtn{
+	box-shadow:  5px 5px 5px rgb(0, 0, 0);
+	color: white;
+}
 .contactpagebtn{
 	box-shadow:  5px 5px 5px rgb(0, 0, 0);
 	color: white;
@@ -3325,6 +3340,11 @@ form#search,.slidershadow {
 .cameraContents .camera_caption div {
 	margin-top:-60% !important;
 }
+
+.gallerypagebtn{
+	margin:10px 5px;
+}
+
 .dl-horizontal dt {
 	float:none;
 	width:auto;
@@ -3388,11 +3408,23 @@ form#search,.slidershadow {
 .modal.fade.in {
 	top:20px;
 }
+
+
 }
 @media (max-width:480px) {
 .cameraContents .camera_caption div {
 	margin-top:-130% !important;
+} 
+
+#gallerypich1{
+	margin-top: 5px;
+	font-size: 14px;
 }
+
+#homesignupbutton {
+	margin: 15px;
+	}
+
 .nav-collapse {
 	-webkit-transform:translate3d(0,0,0);
 }

@@ -110,14 +110,14 @@ React.useEffect(() => {
 						</div>
 						<div className="clearfix">
 						</div>
-						<Col sm={12}  className='d-md-none d-sm-block d-lg-none' ><Menu burgerButtonClassName={ "" } right >
+						<Col sm={12}  className='d-md-none d-sm-block d-lg-none' ><Menu burgerButtonClassName={ "" } right >							
 									<ul  id="" className="">
-										<li className="menu-item"><Link className="signuploginNav3" to={'/'}>Home</Link></li><br></br><br></br>
-										<li className="menu-item"><Link className="signuploginNav3" to ='/gallery'>Gallery</Link></li><br></br><br></br>
-										<li className="menu-item"><Link className="signuploginNav3" to={'#'}>Map</Link></li><br></br><br></br>
+										<li className="menu-item"><Link className="signuploginNav3" to={'/'}>Home</Link></li><br></br>
+										<li className="menu-item"><Link className="signuploginNav3" to ='/gallery'>Gallery</Link></li><br></br>
+										<li className="menu-item"><Link className="signuploginNav3" to={'#'}>Map</Link></li><br></br>
 										<li className="menu-item">{props.currUser===null || props.currUser==undefined || !localStorage.getItem('currUser') ? <Link className="signuploginNav3" to={`/profile1`}>Profile</Link> : <Link className="signuploginNav3" to={`/profile/${props.currUser._id}`}>Profile</Link> }</li>
-										<br></br><br></br><li className="menu-item"><Link className="signuploginNav3" to={'/contact'}>Contact</Link></li>
-									</ul><br></br><br></br><br></br>
+										<br></br><li className="menu-item"><Link className="signuploginNav3" to={'/contact'}>Contact</Link></li>
+									</ul><br></br><br></br>
 
 									<form onSubmit={handleSubmit} id="search" action="#" method="GET">	
 								<div className="autocompletediv2" style={{ width: 250, margin: 0, height: "400px", background: "#373a47" }}>					

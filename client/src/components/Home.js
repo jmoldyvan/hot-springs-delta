@@ -74,8 +74,8 @@ export default function Home (props) {
 							Create an account to leave reviews and like hot spring locations. Track your liked hot springs for on your profile page!
 						</p>
 						<p>
-							<Link to={'/Signup'} className="btn btn-primary btn-large me-5"> Signup → </Link>
-							<Link to={'/Login'} className="btn btn-primary btn-large"> Login → </Link></p>
+							<Link to={'/Signup'} id='homesignupbutton' className=" homesignupbutton btn btn-primary btn-large "> Signup → </Link>
+							<Link to={'/Login'} id='homeloginbutton' className="homeloginbutton btn btn-primary btn-large"> Login → </Link></p>
 					</div>
 				</div>
 				<div className="col-md-4 my-4">

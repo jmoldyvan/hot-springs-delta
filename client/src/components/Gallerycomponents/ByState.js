@@ -34,13 +34,15 @@ export default function ByState (props) {
 
             
             <div className="menu-tabs container-fluid mt-5  ">
-
-                <div className="menu-tab d-flex justify-content-around flex-wrap col  mt-1">
-                    <button className="loginpagebtn btn-primary btn-warning " onClick={() => filterItem('CA')}>California</button>
-                    <button  className="loginpagebtn btn-primary btn-warning " onClick={() => filterItem('NV')}>Nevada</button>
-                    <button className="loginpagebtn btn-primary btn-warning " onClick={() => filterItem('OR')}>Oregon</button>
-                    <button className="loginpagebtn btn-primary btn-warning " onClick={() => filterItem('WA')}>Washington</button>
-                    <button className="loginpagebtn btn-primary btn-warning " onClick={() => setItems(props.allHotSpringData)}>All</button>
+                <div className="menu-tab d-flex justify-content-around flex-wrap col  ">
+<button className="gallerypagebtn btn-primary btn-warning " onClick={() => setItems(props.allHotSpringData)}>All</button>
+                </div>
+                <div className="menu-tab d-flex justify-content-around flex-wrap col  mt-4">
+                    <button className="gallerypagebtn btn-primary btn-warning " onClick={() => filterItem('CA')}>California</button>
+                    <button  className="gallerypagebtn btn-primary btn-warning " onClick={() => filterItem('NV')}>Nevada</button>
+                    <button className="gallerypagebtn btn-primary btn-warning " onClick={() => filterItem('OR')}>Oregon</button>
+                    <button className="gallerypagebtn btn-primary btn-warning " onClick={() => filterItem('WA')}>Washington</button>
+                    
                 </div>
 
             </div>
@@ -59,9 +61,9 @@ export default function ByState (props) {
                                                 <div className="col-12 col-md-12 col-lg-12 img-div">
                                                 <Link to={`/sitedetail/${_id}`}><img src={image} alt={name} className="img-fluid"/></Link>
                                                 </div>
-                                                <div className="col-12 col-md-12 col-lg-12">
-                                                    <div className="main-title pt-1 pb-1 mt-3">
-                                                        <h1>{name}</h1>
+                                                <div className="col-12 col-md-12 col-lg-12 mt-2">
+                                                    <div className="main-title ">
+                                                        <h1 id='gallerypich1'>{name}</h1>
                                                         <p>{area}</p>
                                                     </div>
                                                     <div className="menu-price-book">
