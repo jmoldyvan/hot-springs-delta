@@ -21,7 +21,7 @@ router.post('/signup', authController.postSignup)
 
 // ****************************
 router.get('/getprofilepic/:id', profilePostController.getProfilePost)
-router.post('/updateprofilepic/:id', upload.single("formData"), profilePostController.updateProfilePost)
+router.post('/updateprofilepic/:id', upload.single("fileInput"), profilePostController.updateProfilePost)
 router.delete('/deleteprofile/:id', profilePostController.deleteProfilePost)
 // ****************************
 

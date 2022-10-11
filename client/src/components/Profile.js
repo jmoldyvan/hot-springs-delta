@@ -33,7 +33,7 @@ export default function Profile (props) {
 		const [allUserHotSpringReviews, setAllUserHotSpringReviews] = React.useState([])
 		const [hotSpringReviewInfo, setHotSpringReviewInfo] = React.useState([])
 		// const [profileImage, setProfileImage] = React.useState()
-		// const [isLoggedIn, setIsloggedIn] = React.useState(false)
+		const [isLoggedIn, setIsloggedIn] = React.useState(false)
 
 		const [fav, setFav] = React.useState([])
 
@@ -55,6 +55,7 @@ export default function Profile (props) {
 					method: 'delete', body: JSON.stringify(isOfHotSpring), //put your state from inputs/text area//),
 					headers: { 'Content-Type': 'application/json' }
 					}).then((res) => res.json()))
+					setIsloggedIn(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true )
 			}
 
 		// const getProfilePost = async () => {
@@ -87,11 +88,11 @@ export default function Profile (props) {
 			// getProfilePost()
 			},[])
 
-			// React.useEffect(() => {
-			// 	if(isLoggedIn!==false){
-			// 		window.location.reload()
-			// 	}
-			// 	 },[isLoggedIn]);
+			React.useEffect(() => {
+				if(isLoggedIn!==false){
+					window.location.reload()
+				}
+				 },[isLoggedIn]);
 
 function doesUserIsLiked() {
 	let saved = props.allHotSpringData.filter(x => (
@@ -146,7 +147,7 @@ function doesUserIsLiked() {
 							<p className="continueread readmorebox">
 							<Link to={`/sitedetail/${hotSpring}`}>Click Here To Visit Hot Spring</Link>
 							</p>
-							<p className="continueread readmorebox" onClick={()=> {deleteReview(elem); window.location.reload()}}>
+							<p className="continueread readmorebox" onClick={()=> {deleteReview(elem)}}>
 							<Link to='#'>Click Here To Delete This Review</Link>
 							</p>
 						</div>
