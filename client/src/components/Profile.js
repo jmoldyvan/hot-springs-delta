@@ -18,18 +18,15 @@ export default function Profile (props) {
     // )
 	// console.log(formData);
 	// function handleChange(event) {
-	// 	setFormData(prevFormData => {
-	// 		return {
-	// 			[event.target.name]: event.target.files[0]
-	// 		}
-	// 	})
+	// 	setFormData(event.target.files[0])
+	// 	}
 	// }
-	// function handleSubmit(event) {
-	// 	event.preventDefault()
-	// }
+	function handleSubmit(event) {
+		event.preventDefault()
+	}
 
 
-		// const [selectedFile, setSelectedFile] = React.useState(null);
+		// const [formData, setFormData] = React.useState(null);
 		const [allUserHotSpringReviews, setAllUserHotSpringReviews] = React.useState([])
 		const [hotSpringReviewInfo, setHotSpringReviewInfo] = React.useState([])
 		// const [profileImage, setProfileImage] = React.useState()
@@ -70,13 +67,16 @@ export default function Profile (props) {
 		// console.log(formData);
 
         // const postProfilePost = async () => {
-		// 	console.log(formData.fileInput);
-		// 	if(formData.fileInput !== null){
+		// 	// console.log(formData.fileInput);
+		// 	if(formData !== null){
+		// 		const data = new FormData();
+		// 		if (formData) {
+		// 			data.append("image", formData);
+		// 		}
 		// 		let response = await Promise.resolve(fetch (`http://localhost:5000/updateprofilepic/:id`, {
-		// 		method: 'post', body: JSON.stringify(formData.fileInput), //put your state from inputs/text area//),
+		// 		method: 'post', body: JSON.stringify(formData), data: data, //put your state from inputs/text area//),
 		// 		headers: {  }
 		// 		}).then((res) => res.json()))
-		// 		let data = response
 		// 		setIsloggedIn(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true )
 		// }
 		// }  
@@ -112,12 +112,26 @@ function doesUserIsLiked() {
 				<div className="hero-unit">
 					<h1>Welcome, {props.currUser.userName}</h1>
 					<p>
-						{ <img src="https://res.cloudinary.com/djp4vd3uw/image/upload/v1663206333/hot-spring-imgs/agua-caliente/AguaCaliente1_cum4pe.jpg" className="pull-left paddingright" alt="" style={style}/>}
+						{<img src="https://res.cloudinary.com/djp4vd3uw/image/upload/v1663206333/hot-spring-imgs/agua-caliente/AguaCaliente1_cum4pe.jpg" className="pull-left paddingright" alt="" style={style}/>}
 					</p>
 					<p>
+
+					{/* ******************************** */}
+
 					<form className="">
                             <input id='invi'/>
                     </form>
+					{/* <form className="loginformstyle" onSubmit={handleSubmit} encType='multipart/form-data'>
+                            <input
+                                type="file"
+                                placeholder="userName"
+                                onChange={(e) => setFormData(e.target.files[0])}
+                                name="formData"
+                                // value={formData}
+                            />
+                            <button className="loginpagebtn mt-3 btn btn-primary btn-large col-md-5 col-md-offset-3 col-sm-12" onClick={()=> {postProfilePost(); }}  >Login</button>
+                    </form> */}
+					{/* ******************************* */}
 					</p>
 				</div>
 				<div id="comments">

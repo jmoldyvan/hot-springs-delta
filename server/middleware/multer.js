@@ -2,7 +2,13 @@ const multer = require("multer");
 const path = require("path");
 
 module.exports = multer({
-  storage: multer.diskStorage({}),
+  storage: multer.diskStorage({  
+  //   filename: function (req, file, cb) {
+  //   let filename = 'filenametogive';
+  //    req.body.file = filename
+  //   cb(null, filename)
+  // }
+}),
   fileFilter: (req, file, cb) => {
     let ext = path.extname(file.originalname);
     if (ext !== ".jpg" && ext !== ".jpeg" && ext !== ".png" && ext !== ".gif") {
