@@ -78,7 +78,7 @@ export default function Home (props) {
 							<Link to={'/Login'} id='homeloginbutton' className="homeloginbutton btn btn-primary btn-large"> Login → </Link></p>
 					</div>
 				</div>
-				<div className="col-md-4 my-4">
+				{/* <div className="col-md-4 my-4">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
 							<i className="fontawesome-icon medium circle-white center icon-compass"></i>
@@ -91,7 +91,7 @@ export default function Home (props) {
 						<p><Link to={'/Login'} className="btn btn-primary btn-large"> Map → </Link></p>
 						</p>
 					</div>
-				</div>
+				</div> */}
 				<div className="col-md-4 my-4">
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">

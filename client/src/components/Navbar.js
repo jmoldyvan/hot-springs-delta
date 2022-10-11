@@ -114,7 +114,7 @@ React.useEffect(() => {
 									<ul  id="" className="">
 										<li className="menu-item"><Link className="signuploginNav3" to={'/'}>Home</Link></li><br></br>
 										<li className="menu-item"><Link className="signuploginNav3" to ='/gallery'>Gallery</Link></li><br></br>
-										<li className="menu-item"><Link className="signuploginNav3" to={'#'}>Map</Link></li><br></br>
+										{/* <li className="menu-item"><Link className="signuploginNav3" to={'#'}>Map</Link></li><br></br> */}
 										<li className="menu-item">{props.currUser===null || props.currUser==undefined || !localStorage.getItem('currUser') ? <Link className="signuploginNav3" to={`/profile1`}>Profile</Link> : <Link className="signuploginNav3" to={`/profile/${props.currUser._id}`}>Profile</Link> }</li>
 										<br></br><li className="menu-item"><Link className="signuploginNav3" to={'/contact'}>Contact</Link></li>
 									</ul><br></br><br></br>
@@ -163,7 +163,7 @@ React.useEffect(() => {
 									<li className="active selected"><Link to={'/'}>Home</Link></li>
 									<li><Link to ='/gallery'>Gallery
 									</Link></li>
-									<li><Link to={'#'}>Map</Link></li>
+									{/* <li><Link to={'#'}>Map</Link></li> */}
 									<li>{props.currUser===null || props.currUser==undefined || !localStorage.getItem('currUser') ? <Link to={`/profile1`}>Profile</Link> : <Link to={`/profile/${props.currUser._id}`}>Profile</Link> }</li>
 									<li><Link to={'/contact'}>Contact</Link></li>
 								</ul>
