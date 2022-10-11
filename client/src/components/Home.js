@@ -40,7 +40,7 @@ export default function Home (props) {
 						<div>
 						</div>
 					</div>
-			<div className="row top25">
+			{/* <div className="row top25">
 				<div className="panel1">
 					<div className="col-md-9">
 						<h4 className="top0">Click Here To View Our Interactive Map</h4>
@@ -52,7 +52,7 @@ export default function Home (props) {
 					<div className="clearfix">
 					</div>
 				</div>
-			</div>
+			</div> */}
 			<div className="titleborder">
 						<div>
 						</div>
