@@ -11,6 +11,8 @@ export default function Profile (props) {
 	}
 		const [allUserHotSpringReviews, setAllUserHotSpringReviews] = React.useState([])
 		const [hotSpringReviewInfo, setHotSpringReviewInfo] = React.useState([])
+		const [profileImage, setProfileImage] = React.useState()
+		// const [isLoggedIn, setIsloggedIn] = React.useState(false)
 
 		const [fav, setFav] = React.useState([])
 
@@ -25,29 +27,49 @@ export default function Profile (props) {
 				setHotSpringReviewInfo(result)  
             }
 
-			const deleteReview = async (isOfHotSpring) => {
+		const deleteReview = async (isOfHotSpring) => {
 				// console.log('delete acheived ');
 					let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/reviews/deleteReview/:id', {
 					method: 'delete', body: JSON.stringify(isOfHotSpring), //put your state from inputs/text area//),
 					headers: { 'Content-Type': 'application/json' }
 					}).then((res) => res.json()))
-				}
+			}
+
+		const getProfilePost = async () => {
+			const profilePostData = await Promise.resolve(fetch(`https://west-coast-hot-springs-api-5czk.onrender.com/getprofilepic/:id`).then((res) => res.json()))
+			setProfileImage(profilePostData)
+			console.log(profileImage);
+		}
+		console.log(profileImage);
 
 
-			React.useEffect(() => {
-				getAllReviews()
-				doesUserIsLiked()
+
+			
+		React.useEffect(() => {
+			getAllReviews()
+			doesUserIsLiked()
+			getProfilePost()
 			},[])
-			React.useEffect(() => {
-				getAllReviews()
-				doesUserIsLiked()
-			},[]);
+
+			// React.useEffect(() => {
+			// 	if(isLoggedIn!==false){
+			// 		window.location.reload()
+			// 	}
+			// 	 },[isLoggedIn]);
+			// React.useEffect(() => {
+			// 	getAllReviews()
+			// 	doesUserIsLiked()
+			// },[]);
 
 function doesUserIsLiked() {
 	let saved = props.allHotSpringData.filter(x => (
 	x.usersWhoLiked.includes(props.currUser._id)))
 		setFav(saved)
 }
+
+
+
+
     return(
     <div>
         <Navbar currUser={props.currUser} allHotSpringData={props.allHotSpringData}/>

@@ -3474,6 +3474,11 @@ input[type="checkbox"],input[type="radio"] {
 }
 }
 @media (max-width:979px) {
+
+	#homesignupbutton {
+		margin: 15px;
+		}
+
 body {
 	padding-top:0;
 }
