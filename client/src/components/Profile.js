@@ -2,16 +2,37 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
 
 export default function Profile (props) {
-	
+	const id = useParams();
+	// console.log(id.id);
+	// console.log(props.currUser._id);
 	let style ={
 		margin:'10px'
 	}
+	// const [formData, setFormData] = React.useState(
+    //     {fileInput: null,
+			
+	// 	}
+    // )
+	// console.log(formData);
+	// function handleChange(event) {
+	// 	setFormData(prevFormData => {
+	// 		return {
+	// 			[event.target.name]: event.target.files[0]
+	// 		}
+	// 	})
+	// }
+	// function handleSubmit(event) {
+	// 	event.preventDefault()
+	// }
+
+
+		// const [selectedFile, setSelectedFile] = React.useState(null);
 		const [allUserHotSpringReviews, setAllUserHotSpringReviews] = React.useState([])
 		const [hotSpringReviewInfo, setHotSpringReviewInfo] = React.useState([])
-		const [profileImage, setProfileImage] = React.useState()
+		// const [profileImage, setProfileImage] = React.useState()
 		// const [isLoggedIn, setIsloggedIn] = React.useState(false)
 
 		const [fav, setFav] = React.useState([])
@@ -29,26 +50,41 @@ export default function Profile (props) {
 
 		const deleteReview = async (isOfHotSpring) => {
 				// console.log('delete acheived ');
+				localStorage.getItem("currUser")
 					let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/reviews/deleteReview/:id', {
 					method: 'delete', body: JSON.stringify(isOfHotSpring), //put your state from inputs/text area//),
 					headers: { 'Content-Type': 'application/json' }
 					}).then((res) => res.json()))
 			}
 
-		const getProfilePost = async () => {
-			const profilePostData = await Promise.resolve(fetch(`https://west-coast-hot-springs-api-5czk.onrender.com/getprofilepic/:id`).then((res) => res.json()))
-			setProfileImage(profilePostData)
-			console.log(profileImage);
-		}
-		console.log(profileImage);
+		// const getProfilePost = async () => {
+		// 	const profilePostData = await Promise.resolve(fetch(`http://localhost:5000/getprofilepic/${id.id}`), {
+		// 		method: 'get', body: JSON.stringify({_id : props.currUser._id}), //put your state from inputs/text area//),
+		// 		headers: { 'Content-Type': 'application/json' }
+		// 		}).then((res) => res.json())
+		// 		console.log(profilePostData);
+		// 	setProfileImage(profilePostData)
+		// 	console.log(profileImage);
+		// }
+		// console.log(formData);
 
-
+        // const postProfilePost = async () => {
+		// 	console.log(formData.fileInput);
+		// 	if(formData.fileInput !== null){
+		// 		let response = await Promise.resolve(fetch (`http://localhost:5000/updateprofilepic/:id`, {
+		// 		method: 'post', body: JSON.stringify(formData.fileInput), //put your state from inputs/text area//),
+		// 		headers: {  }
+		// 		}).then((res) => res.json()))
+		// 		let data = response
+		// 		setIsloggedIn(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true )
+		// }
+		// }  
 
 			
 		React.useEffect(() => {
 			getAllReviews()
 			doesUserIsLiked()
-			getProfilePost()
+			// getProfilePost()
 			},[])
 
 			// React.useEffect(() => {
@@ -56,10 +92,6 @@ export default function Profile (props) {
 			// 		window.location.reload()
 			// 	}
 			// 	 },[isLoggedIn]);
-			// React.useEffect(() => {
-			// 	getAllReviews()
-			// 	doesUserIsLiked()
-			// },[]);
 
 function doesUserIsLiked() {
 	let saved = props.allHotSpringData.filter(x => (
@@ -79,10 +111,12 @@ function doesUserIsLiked() {
 				<div className="hero-unit">
 					<h1>Welcome, {props.currUser.userName}</h1>
 					<p>
-						<img src="https://res.cloudinary.com/djp4vd3uw/image/upload/v1663206333/hot-spring-imgs/agua-caliente/AguaCaliente1_cum4pe.jpg" className="pull-left paddingright" alt="" style={style}/> 
+						{ <img src="https://res.cloudinary.com/djp4vd3uw/image/upload/v1663206333/hot-spring-imgs/agua-caliente/AguaCaliente1_cum4pe.jpg" className="pull-left paddingright" alt="" style={style}/>}
 					</p>
 					<p>
-						<a className="btn btn-primary btn-large"></a>
+					<form className="">
+                            <input id='invi'/>
+                    </form>
 					</p>
 				</div>
 				<div id="comments">

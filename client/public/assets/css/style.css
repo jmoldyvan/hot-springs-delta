@@ -841,6 +841,12 @@ ul.footermenu li a {
 .footerdark hr {
 	border-bottom:1px solid #333;
 }
+
+#invi{
+	border: white;
+	pointer-events: none;
+}
+
 .footerdark .totop,.footerdark .totop:hover {
 	background-image:none;
 }

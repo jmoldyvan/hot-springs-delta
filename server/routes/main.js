@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const upload = require("../middleware/multer");
 const authController = require('../controllers/auth') 
 const hotSpringController = require('../controllers/hotSpring')
 const contactController = require('../controllers/contact')
@@ -20,7 +21,7 @@ router.post('/signup', authController.postSignup)
 
 // ****************************
 router.get('/getprofilepic/:id', profilePostController.getProfilePost)
-router.post('/updateprofilepic/:id', profilePostController.updateProfilePost)
+router.post('/updateprofilepic/:id', upload.single("formData"), profilePostController.updateProfilePost)
 router.delete('/deleteprofile/:id', profilePostController.deleteProfilePost)
 // ****************************
 

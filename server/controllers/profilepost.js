@@ -7,10 +7,12 @@ const e = require("express");
 module.exports = {
 
 updateProfilePost: async (req, res) => {
-    try {
+    // try {
+      console.log(req.file)
+      console.log(req.params);
         // Upload image to cloudinary
         const result = await cloudinary.uploader.upload(req.file.path);
-        console.log(req.body)
+        
             let chosenProfilePost = await ProfilePost.findOne(
               {_id: req.params.id, user: req.body.user });
               console.log(chosenProfilePost);
@@ -33,9 +35,9 @@ updateProfilePost: async (req, res) => {
               console.log("created profile pic");
               res.json({cloudinaryId: result.public_id, image: result.secure_url})
             } 
-           } catch (err) {
-              console.log(err);
-            }
+          //  } catch (err) {
+          //     console.log(err);
+          //   }
           },
 
           deleteProfilePost: async (req, res) => {
@@ -54,8 +56,9 @@ updateProfilePost: async (req, res) => {
             }
           },    
           getProfilePost: async (req,res)=>{
+            // console.log(req.params);
             try{
-                let chosenProfilePost = await ProfilePost.findById({ _id: req.body._id });
+                let chosenProfilePost = await ProfilePost.findById({ _id: req.params.id });
                 if(chosenProfilePost){
                     res.json(chosenProfilePost) 
                 }
