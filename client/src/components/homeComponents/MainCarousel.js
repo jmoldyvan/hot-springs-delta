@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 
-	// can I use map instead?
-
     export default function MainCarousel (props) {
 		const style = {
             display: 'block'

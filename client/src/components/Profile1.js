@@ -7,7 +7,6 @@ export default function Profile1 (props) {
 	let style ={
 		margin:'10px'
 	}
-		// console.log(props.currUser);
     return(
 
     <div>

@@ -6,30 +6,14 @@ import { useParams } from 'react-router-dom';
 
 export default function Profile (props) {
 	const id = useParams();
-	// console.log(id.id);
-	// console.log(props.currUser._id);
 	let style ={
 		margin:'10px'
 	}
-	// const [formData, setFormData] = React.useState(
-    //     {fileInput: null,
-			
-	// 	}
-    // )
-	// console.log(formData);
-	// function handleChange(event) {
-	// 	setFormData(event.target.files[0])
-	// 	}
-	// }
 	function handleSubmit(event) {
 		event.preventDefault()
 	}
-
-
-		// const [formData, setFormData] = React.useState(null);
 		const [allUserHotSpringReviews, setAllUserHotSpringReviews] = React.useState([])
 		const [hotSpringReviewInfo, setHotSpringReviewInfo] = React.useState([])
-		// const [profileImage, setProfileImage] = React.useState()
 		const [isLoggedIn, setIsloggedIn] = React.useState(false)
 
 		const [fav, setFav] = React.useState([])
@@ -46,7 +30,6 @@ export default function Profile (props) {
             }
 
 		const deleteReview = async (isOfHotSpring) => {
-				// console.log('delete acheived ');
 				localStorage.getItem("currUser")
 					let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/reviews/deleteReview/:id', {
 					method: 'delete', body: JSON.stringify(isOfHotSpring), //put your state from inputs/text area//),
@@ -54,33 +37,6 @@ export default function Profile (props) {
 					}).then((res) => res.json()))
 					setIsloggedIn(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true )
 			}
-
-		// const getProfilePost = async () => {
-		// 	const profilePostData = await Promise.resolve(fetch(`http://localhost:5000/getprofilepic/${id.id}`), {
-		// 		method: 'get', body: JSON.stringify({_id : props.currUser._id}), //put your state from inputs/text area//),
-		// 		headers: { 'Content-Type': 'application/json' }
-		// 		}).then((res) => res.json())
-		// 		console.log(profilePostData);
-		// 	setProfileImage(profilePostData)
-		// 	console.log(profileImage);
-		// }
-		// console.log(formData);
-
-        // const postProfilePost = async () => {
-		// 	// console.log(formData.fileInput);
-		// 	if(formData !== null){
-		// 		const data = new FormData();
-		// 		if (formData) {
-		// 			data.append("image", formData);
-		// 		}
-		// 		let response = await Promise.resolve(fetch (`http://localhost:5000/updateprofilepic/:id`, {
-		// 		method: 'post', body: JSON.stringify(formData), data: data, //put your state from inputs/text area//),
-		// 		headers: {  }
-		// 		}).then((res) => res.json()))
-		// 		setIsloggedIn(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true )
-		// }
-		// }  
-
 			
 		React.useEffect(() => {
 			getAllReviews()
@@ -99,9 +55,6 @@ function doesUserIsLiked() {
 	x.usersWhoLiked.includes(props.currUser._id)))
 		setFav(saved)
 }
-
-
-
 
     return(
     <div>

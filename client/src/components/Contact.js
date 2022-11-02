@@ -39,7 +39,6 @@ export default function Contact (props) {
                             Contact
                         </div>
                     </div>
-                    {/* <div className="titleborder"></div> */}
                 </div>
 		  </div>
         <div className="container mt-5 ">
@@ -62,7 +61,6 @@ export default function Contact (props) {
         </div>
 
         <div className="row graysection">
-				{/* <div className="col-md-5"> */}
 					<div className="grey-box-icon">
 						<div className="icon-box-top grey-box-icon-pos">
 							<i className="fontawesome-icon medium circle-white center icon-envelope"></i>
@@ -74,24 +72,10 @@ export default function Contact (props) {
 						<p>
 							If you know of any new hot springs that you would like to be added or any information 
               that needs to be updated, please send a message.
-						</p>
-						{/* <p>
-							<Link to={'/Signup'} className="btn btn-primary btn-large"> Signup → </Link></p>
-							<p><Link to={'/Login'} className="btn btn-primary btn-large"> Login → </Link></p> */}
-						
-					{/* </div> */}
-        
+						</p> 
 					</div>
-
-
-
 					</div>
-
-
-
       </div>
-
-
           <Footer/>
     </div>
     )

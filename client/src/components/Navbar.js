@@ -17,12 +17,10 @@ export default function Navbar (props) {
         {searchHS: ""}
     )
 	
-// console.log(props.allHotSpringData);
 	const getLogOut = async () => {
 		if(!localStorage.getItem('currUser')){
 			return undefined
         }
-		// console.log('post LogOut acheived ');
 			let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/logOut', {}).then((res) => res.json()))
 			let data = response
 		if(data.msg == 'ERROR'){
@@ -41,38 +39,30 @@ export default function Navbar (props) {
 	  }
 	  function handleChange(event) {
         setFormData(prevFormData => {
-			// console.log(formData)
             return {
-				
                 ...prevFormData,
                 [event.target.name]: event.target.value
             }
         })}
 		function handleSubmit(event) {
 			event.preventDefault()
-			// console.log(formData)
 		}
 
 const handleOnSearch = (string, results) => {
-	// console.log(string, results);
 	setSearchString(string);
   };
 const handleOnSelect = (string) => {
-	// console.log(string.name);
 	setSearchString(string.name);
   };
 
 
 const navigate = useNavigate();
 function getIndHSPage(searchString){
-	// console.log(allhotSpringDataForAutoComplete);
-	// console.log(searchString);
 	if(!allhotSpringDataForAutoComplete.some(e => e.name == (searchString))){
 		alert(`Cannot Find ${searchString}`)
 	}
 	else{
 		let matchedHotSpring = allhotSpringDataForAutoComplete.filter((x) => x.name == searchString)
-		// console.log(matchedHotSpring[0]._id);
 		navigate(`/sitedetail/${matchedHotSpring[0]._id}`, {replace: true})
 	}
 }
@@ -94,16 +84,10 @@ React.useEffect(() => {
 							</h1>
 						<div className="">
 							<ul className="social-icons list-soc">
-							{/* <li><a href='https://twitter.com/JordanMoldovan'><i className="icon-twitter"></i></a></li>
-							<li><a href='https://www.linkedin.com/in/jordan-moldovan/'><i className="icon-linkedin"></i></a></li>
-							<li><a href='https://github.com/jmoldyvan'><i class="icon-github"></i></a></li>
-							<li><a href={'https://jordan-moldovan.netlify.app/'}><i className="icon-male"></i></a></li> */}
 							</ul>
 							<div class="infophone">
 							<span ><Link className="signuploginNavleft" to={'/Login'}>Login</Link></span>
-							{/* <span className="signuploginNav"> |</span> */}
 							<span ><Link className="signuploginNav2" to={'/Signup'}>Signup</Link></span>
-							{/* <span className="signuploginNav"> |</span> */}
 							{isLoggedOut && !localStorage.getItem('currUser') ? <Navigate to="/profile1" /> : <span className="signuploginNavleft" onClick={getLogOut} >LogOut</span>}
 							</div>
 							
@@ -114,7 +98,6 @@ React.useEffect(() => {
 									<ul  id="" className="">
 										<li className="menu-item"><Link className="signuploginNav3" to={'/'}>Home</Link></li><br></br>
 										<li className="menu-item"><Link className="signuploginNav3" to ='/gallery'>Gallery</Link></li><br></br>
-										{/* <li className="menu-item"><Link className="signuploginNav3" to={'#'}>Map</Link></li><br></br> */}
 										<li className="menu-item">{props.currUser===null || props.currUser==undefined || !localStorage.getItem('currUser') ? <Link className="signuploginNav3" to={`/profile1`}>Profile</Link> : <Link className="signuploginNav3" to={`/profile/${props.currUser._id}`}>Profile</Link> }</li>
 										<br></br><li className="menu-item"><Link className="signuploginNav3" to={'/contact'}>Contact</Link></li>
 									</ul><br></br><br></br>

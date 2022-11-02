@@ -18,10 +18,6 @@ export default function IndSpringDetail (props) {
             currentHotSpringSite = e
         }
     });
-    // console.log(currentHotSpringSite);
-
-
-
 
 	const [handleData, setHandleData] = React.useState(false)
 	const [allHotSpringReviews, setAllHotSpringReviews] = React.useState([])
@@ -90,7 +86,6 @@ export default function IndSpringDetail (props) {
 				}  
 			function doesUserIsLiked() {
 				if(currentHotSpringSite.usersWhoLiked.includes(props.currUser._id)){
-						// console.log('it is icluded');
 						return setFav(prevContact => ({
 							...prevContact,
 							isFavorite: true

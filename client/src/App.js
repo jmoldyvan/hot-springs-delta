@@ -15,10 +15,6 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Contact from "./components/Contact";
 
-
-
-
-
 export default function App() {
       // initiate loading state for loading the page
       const [loading, setLoading] = React.useState(true);
@@ -36,6 +32,7 @@ export default function App() {
         {name: '',id: null,image:''}, {name: '',id: null,image:''}, 
   ])
 
+  // STATES
     let [allHotSpringNames, setAllHotSpringNames] = React.useState([])
     let [userLatLng, setUserLatLng] = React.useState()
     let [fiveCloseHS, setFiveCloseHS] = React.useState()
@@ -47,31 +44,7 @@ export default function App() {
       userName: '',
     })
 
-    // function getLongAndLat() {
-    //   return new Promise((resolve, reject) =>
-    //       navigator.geolocation.getCurrentPosition(resolve, reject)
-    //   )}
-    // async function currLatLng() {
-    //   let pos = await getLongAndLat();
-    //   let latLng = {  }
-    //   latLng.lng = pos.coords.longitude;
-    //   latLng.lat = pos.coords.latitude;
-    //   setUserLatLng(latLng)
-    //   return latLng
-    // }
-  //   const getFive = async () => {
-  //     let latLng = await currLatLng()
-  //     try{let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/findNearest', {
-  //       method: 'post', body: JSON.stringify(latLng),
-  //       headers: { 'Content-Type': 'application/json' }
-  //     }).then((res) => res.json()))
-  //     let data = response
-  //     setFiveCloseHS([data[0], data[1], data[2], data[3], data[4]])
-  //   } catch (error) {
-  //       console.log(error);
-  //   }
-  // }
-
+  // initial hotspring FETCH
     const fetchHotSpring = async () => {
       try{
           // here we use promise all to promise the entire array rawHotSpringAPIData
@@ -89,13 +62,12 @@ export default function App() {
       }
   }
 
+// USE EFFECTS
   React.useEffect(() => {
       fetchHotSpring()
-      // getLongAndLat()
-      //   currLatLng()
-      //   getFive()
     }, []);  
-    React.useEffect(() => {
+
+  React.useEffect(() => {
       if (allHotSpringData.length>0) {
         getRandomHotSpringInfo()
       }
@@ -105,27 +77,32 @@ export default function App() {
     saveUserInfo()
      },[signalForCurrUser]);
 
-
   //   loading true, make loading comp run
   if (loading) {
   return <Loading />;
   }
 
+
+// FUNCTIONS
+
+  // function acquire random hot spring data
   function randomHotSpring() {
     return allHotSpringData[Math.floor(Math.random()*allHotSpringData.length)]
   }
+
+// set 9 random hotspring data sset into array
   function getRandomHotSpringInfo(){
     let hotspringarr =[]
     for (let i = 0; i < 9; i++) {
       hotspringarr.push(randomHotSpring())
       
     }
+  // adding the 9 datasets to state for display
     setHotSpringDataObject(prevSpringInfo => ([
       {
         name: hotspringarr[0].name,
         id: hotspringarr[0]._id,
         image: hotspringarr[0].image, 
-        
     },
       {
         name: hotspringarr[1].name,
@@ -170,6 +147,7 @@ export default function App() {
   ]))
   }
 
+  // check if we have a user logged in
   function saveUserInfo() {
     if(!localStorage.getItem('currUser')){
       return currUser
@@ -179,12 +157,12 @@ export default function App() {
     const initialValue = JSON.parse(saved);
     setCurrUser(initialValue)}
 }
-// console.log(signalForCurrUser);
+
+// signal is used as a truthy check
 function signal(){
   setSignalForCurrUser(prevIsGoingOut => prevIsGoingOut = prevIsGoingOut ? false : true ) 
 }
 let sorted = allHotSpringData.sort((a,b) => b.likes-a.likes)
-console.log(sorted);
 
   return (
     <body className="boxed">
@@ -195,7 +173,6 @@ console.log(sorted);
             currUser={currUser}
             hotSpringDataObject={hotSpringDataObject} 
             allHotSpringData ={allHotSpringData}
-            // fiveCloseHS={fiveCloseHS}
             />}
             />
             <Route path='/gallery' element={<Gallery allHotSpringData ={allHotSpringData}  currUser={currUser} />} />
@@ -211,3 +188,32 @@ console.log(sorted);
 </body>
   );
 }
+
+
+//unused but in works, used to get users lat and long and display closest hot springs
+    // was causing errors
+
+    // function getLongAndLat() {
+    //   return new Promise((resolve, reject) =>
+    //       navigator.geolocation.getCurrentPosition(resolve, reject)
+    //   )}
+    // async function currLatLng() {
+    //   let pos = await getLongAndLat();
+    //   let latLng = {  }
+    //   latLng.lng = pos.coords.longitude;
+    //   latLng.lat = pos.coords.latitude;
+    //   setUserLatLng(latLng)
+    //   return latLng
+    // }
+  //   const getFive = async () => {
+  //     let latLng = await currLatLng()
+  //     try{let response = await Promise.resolve(fetch ('https://west-coast-hot-springs-api-5czk.onrender.com/findNearest', {
+  //       method: 'post', body: JSON.stringify(latLng),
+  //       headers: { 'Content-Type': 'application/json' }
+  //     }).then((res) => res.json()))
+  //     let data = response
+  //     setFiveCloseHS([data[0], data[1], data[2], data[3], data[4]])
+  //   } catch (error) {
+  //       console.log(error);
+  //   }
+  // }
