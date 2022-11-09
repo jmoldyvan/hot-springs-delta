@@ -67,5 +67,57 @@ addLike: async (req,res)=>{
         console.log(err);
       }
     
+    },
+    getHSDataName: async (req,res)=>{
+      console.log(req.params.id);
+      try{
+          const hotSpringDataFromName = await HotSpring.findOne({nocapsname: req.params.id})
+          console.log(hotSpringDataFromName)
+          if(hotSpringDataFromName){
+          return res.json(hotSpringDataFromName)   
+          } 
+      }catch(err){
+          console.log(err)
+      }
+    },
+    getHSDataStates: async (req,res)=>{
+      console.log(req.params.id);
+      let theParamsId = req.params.id
+      theParamsId = theParamsId.toUpperCase()
+      try{
+          const allHotSpringsByState = await HotSpring.find({state: theParamsId})
+          console.log(allHotSpringsByState)  
+          return res.json(allHotSpringsByState)          
+      }catch(err){
+          console.log(err)
+      }
+    },
+    getHSDataIsResort: async (req,res)=>{
+      if(req.params.id=="isnotresort")
+      try{
+          const isNotResort = await HotSpring.find({resort: "No"})
+          console.log(isNotResort)  
+          return res.json(isNotResort)          
+      }catch(err){
+          console.log(err)
+      }
+      else if(req.params.id=="isresort"){
+      try{
+          const isResort = await HotSpring.find({resort: "Yes"})
+          console.log(isResort)  
+          return res.json(isResort)          
+      }catch(err){
+          console.log(err)
+      }
+    }
+    },
+    getHSDataHasWebsite: async (req,res)=>{
+      try{
+          const hasWebsite = await HotSpring.find({website: {$ne: "N/A"}})
+          console.log(hasWebsite)  
+          return res.json(hasWebsite)          
+      }catch(err){
+          console.log(err)
+      }
     }
 }

@@ -1,7 +1,22 @@
 const mongoose = require('mongoose')
 
 const HotSpringSchema = mongoose.Schema({
-
+  nocapsname: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  resort: {
+    type: String,
+    required: true,
+  },
+  website: {
+    type: String,
+    required: true,
+  },
     likes: {
         type: Number,
         required: true,

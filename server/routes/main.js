@@ -27,4 +27,15 @@ router.delete('/deleteprofile/:id', profilePostController.deleteProfilePost)
 
 router.post('/contact', contactController.postContact)
 
+// ****************************
+// name of hotspring endpoint
+router.get('/hotspringdbinfo/:id', hotSpringController.getHSDataName)
+// state abbrev endpoint
+router.get('/hotspringdbinfo/state/:id', hotSpringController.getHSDataStates)
+// is/isnotresort endpoint
+router.get('/hotspringdbinfo/resort/:id', hotSpringController.getHSDataIsResort)
+// has website endpoint
+router.get('/hotspringdbinfo/haswebsite/haswebsite', hotSpringController.getHSDataHasWebsite)
+
+
 module.exports = router

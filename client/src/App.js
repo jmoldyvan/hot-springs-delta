@@ -14,6 +14,7 @@ import Profile1 from "./components/Profile1";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Contact from "./components/Contact";
+import RestAPI from "./components/RestAPI";
 
 export default function App() {
       // initiate loading state for loading the page
@@ -182,6 +183,7 @@ let sorted = allHotSpringData.sort((a,b) => b.likes-a.likes)
             <Route path='/profile/:id' element={<Profile allHotSpringData ={allHotSpringData} currUser={currUser}/>} />
             <Route path='/login' element={<Login allHotSpringData ={allHotSpringData} signal={signal} currUser={currUser} />} />
             <Route path='/signup' element={<Signup allHotSpringData ={allHotSpringData} signal={signal} currUser={currUser} />} />
+            <Route path='/RestAPI' element={<RestAPI allHotSpringData ={allHotSpringData} signal={signal} currUser={currUser} />} />
         </Routes>
     </BrowserRouter>
     </div>
