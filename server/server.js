@@ -46,7 +46,7 @@ const contactEmail = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: "westcoasthotsprings@gmail.com",
-    pass: process.env.EMAILPASS,
+    pass: 'awcrwhhqduomrbps',
   },
 });
 contactEmail.verify((error) => {
