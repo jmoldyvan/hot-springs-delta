@@ -19,7 +19,6 @@ let path = require('dotenv').config({path: './config/.env'})
 require('./config/passport')(passport)
 
 connectDB()
-
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
