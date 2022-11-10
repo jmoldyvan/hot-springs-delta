@@ -12,8 +12,9 @@ const reviewRoutes = require('./routes/reviews')
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 app.use(cors());
+
 require('dotenv').config({path: './config/.env'})
-let path = require('dotenv').config({path: './config/.env'})
+// let path = require('dotenv').config({path: './config/.env'})
 
 // Passport config
 require('./config/passport')(passport)
@@ -45,7 +46,7 @@ const contactEmail = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: "westcoasthotsprings@gmail.com",
-    pass: 'awcrwhhqduomrbps',
+    pass: process.env.EMAILPASS,
   },
 });
 contactEmail.verify((error) => {
