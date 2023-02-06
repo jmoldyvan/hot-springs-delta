@@ -1,14 +1,17 @@
-require("dotenv").config();
+require("dotenv").config({ path: "./config/.env" });
 const nodemailer = require("nodemailer");
 
+nodemailer.config({
+  pass: process.env.EMAIL_PASS
+});
 
 exports.postContact = (req, res, next) => {
-  require("dotenv").config({ path: "./config/.env" });
+
     const contactEmail = nodemailer.createTransport({
         service: 'gmail',
         auth: {
           user: "westcoasthotsprings@gmail.com",
-          pass: `${process.env.EMAIL_PASS}`
+          pass: process.env.EMAIL_PASS
         },
       });
       contactEmail.verify((error) => {
