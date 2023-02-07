@@ -8,7 +8,7 @@ exports.postContact = (req, res, next) => {
         service: 'gmail',
         auth: {
           user: "westcoasthotsprings@gmail.com",
-          pass: process.env.EMAIL_PASS,
+          pass: process.env.EMAIL_PASS
         },
       });
       contactEmail.verify((error) => {
