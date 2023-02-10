@@ -1,7 +1,8 @@
 var mailer = require('nodemailer');
 
 var mailConfig = {
-service: 'gmail',
+  port: 465,               // true for 465, false for other ports
+  host: "smtp.gmail.com",
   auth: {
     user: process.env.EMAIL,
     pass: process.env.EMAIL_PASS
