@@ -1,9 +1,6 @@
 require("dotenv").config({ path: "./config/.env" });
 const nodemailer = require("nodemailer");
 
-nodemailer.config({
-  pass: process.env.EMAIL_PASS
-});
 
 exports.postContact = (req, res, next) => {
 
