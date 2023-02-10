@@ -1,4 +1,4 @@
-const transporter = require("../middleware/transport");
+const transporter = require("../middleware/transporter");
 const nodemailer = require("nodemailer");
 
 exports.postContact = (req, res, next) => {
