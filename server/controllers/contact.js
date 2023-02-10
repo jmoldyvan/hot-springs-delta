@@ -1,10 +1,6 @@
 const transporter = require("../middleware/transport");
 const nodemailer = require("nodemailer");
 
-nodemailer.config({
-  pass: process.env.EMAIL_PASS
-});
-
 exports.postContact = (req, res, next) => {
 
     // const contactEmail = nodemailer.createTransport({
