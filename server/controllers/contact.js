@@ -1,15 +1,19 @@
-const transporter = require("../middleware/transporter");
+require("dotenv").config({ path: "./config/.env" });
 const nodemailer = require("nodemailer");
+
+nodemailer.config({
+  pass: process.env.EMAIL_PASS
+});
 
 exports.postContact = (req, res, next) => {
 
-    // const contactEmail = nodemailer.createTransport({
-    //     service: 'gmail',
-    //     auth: {
-    //       user: "westcoasthotsprings@gmail.com",
-    //       pass: process.env.EMAIL_PASS
-    //     },
-    //   });
+    const contactEmail = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: "westcoasthotsprings@gmail.com",
+          pass: process.env.EMAIL_PASS
+        },
+      });
       contactEmail.verify((error) => {
         if (error) {
           console.log(error);
@@ -28,7 +32,7 @@ exports.postContact = (req, res, next) => {
              <p>Email: ${email}</p>
              <p>Message: ${message}</p>`,
     };
-    transporter.sendMail(mail, (error) => {
+    contactEmail.sendMail(mail, (error) => {
       if (error) {
         res.json({ status: "ERROR" });
       } else {
