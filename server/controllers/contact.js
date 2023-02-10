@@ -1,7 +1,8 @@
 const nodemailer = require("nodemailer");
-require("dotenv").config({ path: "./config/.env" });
+// require("dotenv").config({ path: "./config/.env" });
 
 exports.postContact = (req, res, next) => {
+  require("dotenv").config({ path: "./config/.env" });
     const contactEmail = nodemailer.createTransport({
         service: 'gmail',
         auth: {
