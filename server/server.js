@@ -10,11 +10,10 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const reviewRoutes = require('./routes/reviews')
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 app.use(cors());
 
-require('dotenv').config({path: './config/.env'})
-// let path = require('dotenv').config({path: './config/.env'})
+require('dotenv').config({path: `${__dirname}/.env`})
 
 // Passport config
 require('./config/passport')(passport)
@@ -42,20 +41,20 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use("/reviews", reviewRoutes);
  
-const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: "westcoasthotsprings@gmail.com",
-    pass: process.env.EMAILPASS,
-  },
-});
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
-});
+// const contactEmail = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: "westcoasthotsprings@gmail.com",
+//     pass: 'LazeyBoiStart456930!!',
+//   },
+// });
+// contactEmail.verify((error) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log("Ready to Send");
+//   }
+// });
 
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
