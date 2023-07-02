@@ -13,7 +13,7 @@ const cors = require("cors");
 // const nodemailer = require("nodemailer");
 app.use(cors());
 
-require('dotenv').config({path: `${__dirname}/.env`})
+require('dotenv').config({path: "./config/database"})
 
 // Passport config
 require('./config/passport')(passport)
